@@ -23,12 +23,24 @@ Production-like environment values can be supplied with Dart defines:
 ```bash
 flutter run \
   --dart-define=APP_ENV=staging \
-  --dart-define=API_BASE_URL=https://api.example.com
+  --dart-define=API_BASE_URL=https://api.example.com \
+  --dart-define=AUTH_REQUIRED=false \
+  --dart-define=FIREBASE_ENABLED=false
 ```
 
 Supported `APP_ENV` values are `development`, `staging`, and `production`.
 Never commit secrets to the repository; production secrets will be configured
 through Firebase/Vercel when those services are added.
+
+## Current access mode
+
+Authentication is scaffolded but intentionally disabled. The app uses a guest
+repository and opens the Home screen without login. The Vercel build explicitly
+sets `AUTH_REQUIRED=false` and `FIREBASE_ENABLED=false`.
+
+Login, registration, and password-reset screens are placeholders for the future
+Firebase integration. No Firebase package, secret, or live authentication call
+is active in the current build.
 
 ## Foundation architecture
 

@@ -11,4 +11,6 @@ fi
 "$flutter_root/bin/flutter" config --enable-web
 "$flutter_root/bin/flutter" pub get
 "$flutter_root/bin/flutter" build web --release \
-  --dart-define=APP_ENV=production
+  --dart-define=APP_ENV=production \
+  --dart-define=AUTH_REQUIRED=false \
+  --dart-define=FIREBASE_ENABLED=false

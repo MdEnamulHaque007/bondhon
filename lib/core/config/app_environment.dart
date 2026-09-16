@@ -10,6 +10,14 @@ abstract final class AppEnvironment {
     'API_BASE_URL',
     defaultValue: '',
   );
+  static const authRequired = bool.fromEnvironment(
+    'AUTH_REQUIRED',
+    defaultValue: false,
+  );
+  static const firebaseEnabled = bool.fromEnvironment(
+    'FIREBASE_ENABLED',
+    defaultValue: false,
+  );
 
   static AppFlavor get flavor => switch (flavorName) {
         'production' => AppFlavor.production,

@@ -1,9 +1,11 @@
+import 'package:bondhon/app/router/app_router.dart';
 import 'package:bondhon/app/theme/app_colors.dart';
 import 'package:bondhon/app/theme/app_spacing.dart';
 import 'package:bondhon/core/constants/app_constants.dart';
 import 'package:bondhon/shared/widgets/bondhon_button.dart';
 import 'package:bondhon/shared/widgets/brand_mark.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -169,7 +171,7 @@ class _WelcomeActionCard extends StatelessWidget {
               ),
               const SizedBox(height: AppSpacing.xs),
               Text(
-                'নতুন অ্যাকাউন্ট তৈরি করুন অথবা বিদ্যমান অ্যাকাউন্টে প্রবেশ করুন।',
+                'এখন কোনো অ্যাকাউন্ট বা লগইন ছাড়াই সরাসরি প্রবেশ করুন।',
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       color: colors.onSurfaceVariant,
                       height: 1.55,
@@ -177,20 +179,20 @@ class _WelcomeActionCard extends StatelessWidget {
               ),
               const SizedBox(height: AppSpacing.lg),
               BondhonButton(
-                label: 'নতুন অ্যাকাউন্ট তৈরি করুন',
-                icon: Icons.person_add_alt_1_rounded,
-                onPressed: () {},
+                label: 'এখনই প্রবেশ করুন',
+                icon: Icons.arrow_forward_rounded,
+                onPressed: () => context.go(AppRoutes.home),
               ),
               const SizedBox(height: AppSpacing.sm),
               BondhonButton(
-                label: 'লগইন করুন',
-                icon: Icons.login_rounded,
+                label: 'Login structure দেখুন',
+                icon: Icons.account_circle_outlined,
                 style: BondhonButtonStyle.secondary,
-                onPressed: () {},
+                onPressed: () => context.go(AppRoutes.login),
               ),
               const SizedBox(height: AppSpacing.lg),
               Text(
-                'চালিয়ে যাওয়ার মাধ্যমে আপনি আমাদের শর্তাবলি ও গোপনীয়তা নীতিতে সম্মতি দিচ্ছেন।',
+                'Guest Mode চালু আছে। Authentication পরে Firebase-এর সঙ্গে যুক্ত করা হবে।',
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.bodySmall?.copyWith(
                       color: colors.onSurfaceVariant,
