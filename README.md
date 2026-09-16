@@ -42,6 +42,21 @@ Login, registration, and password-reset screens are placeholders for the future
 Firebase integration. No Firebase package, secret, or live authentication call
 is active in the current build.
 
+## Languages
+
+- English is the default language.
+- English and Bangla can be selected from the welcome, authentication, or app
+  navigation screens.
+- The selected language is saved locally with `SharedPreferencesAsync` and is
+  restored the next time the app opens.
+- New languages can be added through the centralized localization maps.
+
+## Responsive app navigation
+
+- Mobile: Material 3 bottom navigation
+- Tablet/Desktop: navigation rail
+- Initial tabs: Home, Chats, Rooms, Discover, and Profile
+
 ## Foundation architecture
 
 ```text

@@ -1,6 +1,8 @@
 import 'package:bondhon/app/router/app_router.dart';
 import 'package:bondhon/app/theme/app_spacing.dart';
+import 'package:bondhon/core/localization/app_localizations.dart';
 import 'package:bondhon/shared/widgets/brand_mark.dart';
+import 'package:bondhon/shared/widgets/language_selector.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -18,15 +20,17 @@ class AuthScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final strings = AppLocalizations.of(context);
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          tooltip: 'পেছনে যান',
+          tooltip: strings.back,
           onPressed: () => context.canPop()
               ? context.pop()
               : context.go(AppRoutes.welcome),
           icon: const Icon(Icons.arrow_back_rounded),
         ),
+        actions: const [LanguageSelector()],
       ),
       body: SafeArea(
         child: Center(

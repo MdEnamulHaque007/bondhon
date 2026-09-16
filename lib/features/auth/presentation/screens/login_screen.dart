@@ -1,5 +1,6 @@
 import 'package:bondhon/app/router/app_router.dart';
 import 'package:bondhon/app/theme/app_spacing.dart';
+import 'package:bondhon/core/localization/app_localizations.dart';
 import 'package:bondhon/features/auth/presentation/widgets/auth_scaffold.dart';
 import 'package:bondhon/shared/widgets/bondhon_button.dart';
 import 'package:bondhon/shared/widgets/bondhon_text_field.dart';
@@ -11,22 +12,23 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final strings = AppLocalizations.of(context);
     return AuthScaffold(
-      title: 'লগইন',
-      subtitle: 'এই সুবিধাটি ভবিষ্যতে Firebase-এর সঙ্গে সক্রিয় হবে।',
+      title: strings.login,
+      subtitle: strings.loginSubtitle,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const BondhonTextField(
-            label: 'ইমেইল',
+          BondhonTextField(
+            label: strings.email,
             hint: 'name@example.com',
             prefixIcon: Icons.email_outlined,
             keyboardType: TextInputType.emailAddress,
             enabled: false,
           ),
           const SizedBox(height: AppSpacing.md),
-          const BondhonTextField(
-            label: 'পাসওয়ার্ড',
+          BondhonTextField(
+            label: strings.password,
             prefixIcon: Icons.lock_outline_rounded,
             obscureText: true,
             enabled: false,
@@ -35,23 +37,23 @@ class LoginScreen extends StatelessWidget {
             alignment: Alignment.centerRight,
             child: TextButton(
               onPressed: () => context.go(AppRoutes.forgotPassword),
-              child: const Text('পাসওয়ার্ড ভুলে গেছেন?'),
+              child: Text(strings.forgotPassword),
             ),
           ),
           BondhonButton(
-            label: 'লগইন শিগগিরই চালু হবে',
+            label: strings.loginComingSoon,
             onPressed: null,
           ),
           const SizedBox(height: AppSpacing.sm),
           BondhonButton(
-            label: 'লগইন ছাড়াই প্রবেশ করুন',
+            label: strings.continueWithoutLogin,
             icon: Icons.arrow_forward_rounded,
             style: BondhonButtonStyle.secondary,
             onPressed: () => context.go(AppRoutes.home),
           ),
           const SizedBox(height: AppSpacing.sm),
           BondhonButton(
-            label: 'নতুন অ্যাকাউন্টের কাঠামো দেখুন',
+            label: strings.viewRegisterStructure,
             style: BondhonButtonStyle.text,
             onPressed: () => context.go(AppRoutes.register),
           ),

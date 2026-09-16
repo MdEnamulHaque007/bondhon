@@ -1,4 +1,5 @@
 import 'package:bondhon/app/theme/app_spacing.dart';
+import 'package:bondhon/core/localization/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 class BondhonLoadingIndicator extends StatelessWidget {
@@ -8,8 +9,9 @@ class BondhonLoadingIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final strings = AppLocalizations.of(context);
     return Semantics(
-      label: message ?? 'লোড হচ্ছে',
+      label: message ?? strings.loading,
       liveRegion: true,
       child: Center(
         child: Column(

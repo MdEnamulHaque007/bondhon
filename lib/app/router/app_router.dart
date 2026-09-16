@@ -1,8 +1,10 @@
-import 'package:bondhon/core/config/app_environment.dart';
+import 'package:bondhon/core/localization/app_localizations.dart';
+import 'package:bondhon/app/shell/app_shell.dart';
 import 'package:bondhon/features/auth/presentation/screens/forgot_password_screen.dart';
 import 'package:bondhon/features/auth/presentation/screens/login_screen.dart';
 import 'package:bondhon/features/auth/presentation/screens/register_screen.dart';
 import 'package:bondhon/features/home/presentation/screens/home_screen.dart';
+import 'package:bondhon/features/navigation/presentation/screens/feature_placeholder_screen.dart';
 import 'package:bondhon/features/welcome/presentation/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -10,6 +12,10 @@ import 'package:go_router/go_router.dart';
 abstract final class AppRoutes {
   static const welcome = '/';
   static const home = '/home';
+  static const chats = '/chats';
+  static const rooms = '/rooms';
+  static const discover = '/discover';
+  static const profile = '/profile';
   static const login = '/login';
   static const register = '/register';
   static const forgotPassword = '/forgot-password';
@@ -23,12 +29,46 @@ final GoRouter appRouter = GoRouter(
       name: 'welcome',
       builder: (context, state) => const WelcomeScreen(),
     ),
-    GoRoute(
-      path: AppRoutes.home,
-      name: 'home',
-      redirect: (context, state) =>
-          AppEnvironment.authRequired ? AppRoutes.login : null,
-      builder: (context, state) => const HomeScreen(),
+    ShellRoute(
+      builder: (context, state, child) => AppShell(
+        location: state.uri.path,
+        child: child,
+      ),
+      routes: [
+        GoRoute(
+          path: AppRoutes.home,
+          name: 'home',
+          builder: (context, state) => const HomeScreen(),
+        ),
+        GoRoute(
+          path: AppRoutes.chats,
+          name: 'chats',
+          builder: (context, state) => const FeaturePlaceholderScreen(
+            feature: AppFeature.chats,
+          ),
+        ),
+        GoRoute(
+          path: AppRoutes.rooms,
+          name: 'rooms',
+          builder: (context, state) => const FeaturePlaceholderScreen(
+            feature: AppFeature.rooms,
+          ),
+        ),
+        GoRoute(
+          path: AppRoutes.discover,
+          name: 'discover',
+          builder: (context, state) => const FeaturePlaceholderScreen(
+            feature: AppFeature.discover,
+          ),
+        ),
+        GoRoute(
+          path: AppRoutes.profile,
+          name: 'profile',
+          builder: (context, state) => const FeaturePlaceholderScreen(
+            feature: AppFeature.profile,
+          ),
+        ),
+      ],
     ),
     GoRoute(
       path: AppRoutes.login,
@@ -52,7 +92,7 @@ final GoRouter appRouter = GoRouter(
       child: Padding(
         padding: const EdgeInsets.all(24),
         child: Text(
-          'পৃষ্ঠা খুঁজে পাওয়া যায়নি',
+          AppLocalizations.of(context).pageNotFound,
           style: Theme.of(context).textTheme.titleLarge,
           textAlign: TextAlign.center,
         ),

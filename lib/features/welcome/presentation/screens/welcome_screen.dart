@@ -2,8 +2,10 @@ import 'package:bondhon/app/router/app_router.dart';
 import 'package:bondhon/app/theme/app_colors.dart';
 import 'package:bondhon/app/theme/app_spacing.dart';
 import 'package:bondhon/core/constants/app_constants.dart';
+import 'package:bondhon/core/localization/app_localizations.dart';
 import 'package:bondhon/shared/widgets/bondhon_button.dart';
 import 'package:bondhon/shared/widgets/brand_mark.dart';
+import 'package:bondhon/shared/widgets/language_selector.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -27,8 +29,10 @@ class WelcomeScreen extends StatelessWidget {
           ),
         ),
         child: SafeArea(
-          child: LayoutBuilder(
-            builder: (context, constraints) {
+          child: Stack(
+            children: [
+              LayoutBuilder(
+                builder: (context, constraints) {
               final isWide = constraints.maxWidth >= 840;
               return SingleChildScrollView(
                 padding: EdgeInsets.symmetric(
@@ -55,7 +59,14 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                 ),
               );
-            },
+                },
+              ),
+              const Positioned(
+                top: AppSpacing.xs,
+                right: AppSpacing.sm,
+                child: LanguageSelector(),
+              ),
+            ],
           ),
         ),
       ),
@@ -87,6 +98,7 @@ class _WelcomeMessage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
+    final strings = AppLocalizations.of(context);
     return Column(
       crossAxisAlignment:
           centered ? CrossAxisAlignment.center : CrossAxisAlignment.start,
@@ -102,13 +114,13 @@ class _WelcomeMessage extends StatelessWidget {
         ),
         const SizedBox(height: AppSpacing.xs),
         Text(
-          AppConstants.tagline,
+          strings.tagline,
           textAlign: centered ? TextAlign.center : TextAlign.start,
           style: Theme.of(context).textTheme.titleLarge,
         ),
         const SizedBox(height: AppSpacing.md),
         Text(
-          'নিরাপদে কথা বলুন, বন্ধু খুঁজুন এবং নিজের কমিউনিটি গড়ে তুলুন।',
+          strings.welcomeDescription,
           textAlign: centered ? TextAlign.center : TextAlign.start,
           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 color: colors.onSurfaceVariant,
@@ -126,6 +138,7 @@ class _WelcomeActionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
+    final strings = AppLocalizations.of(context);
     return ConstrainedBox(
       constraints: const BoxConstraints(
         maxWidth: AppConstants.maxContentWidth,
@@ -146,19 +159,21 @@ class _WelcomeActionCard extends StatelessWidget {
                   color: AppColors.bondhonGreenSoft,
                   borderRadius: BorderRadius.circular(AppRadius.pill),
                 ),
-                child: const Row(
+                child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.verified_user_outlined,
                       size: 18,
                       color: AppColors.bondhonGreenDark,
                     ),
-                    SizedBox(width: AppSpacing.xs),
+                    const SizedBox(width: AppSpacing.xs),
                     Flexible(
                       child: Text(
-                        'বাংলাদেশের জন্য নিরাপদ সামাজিক প্ল্যাটফর্ম',
-                        style: TextStyle(color: AppColors.bondhonGreenDark),
+                        strings.safetyBadge,
+                        style: const TextStyle(
+                          color: AppColors.bondhonGreenDark,
+                        ),
                       ),
                     ),
                   ],
@@ -166,12 +181,12 @@ class _WelcomeActionCard extends StatelessWidget {
               ),
               const SizedBox(height: AppSpacing.lg),
               Text(
-                'আপনার বন্ধনের যাত্রা শুরু করুন',
+                strings.journeyTitle,
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
               const SizedBox(height: AppSpacing.xs),
               Text(
-                'এখন কোনো অ্যাকাউন্ট বা লগইন ছাড়াই সরাসরি প্রবেশ করুন।',
+                strings.guestAccessDescription,
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       color: colors.onSurfaceVariant,
                       height: 1.55,
@@ -179,20 +194,20 @@ class _WelcomeActionCard extends StatelessWidget {
               ),
               const SizedBox(height: AppSpacing.lg),
               BondhonButton(
-                label: 'এখনই প্রবেশ করুন',
+                label: strings.enterNow,
                 icon: Icons.arrow_forward_rounded,
                 onPressed: () => context.go(AppRoutes.home),
               ),
               const SizedBox(height: AppSpacing.sm),
               BondhonButton(
-                label: 'Login structure দেখুন',
+                label: strings.viewLoginStructure,
                 icon: Icons.account_circle_outlined,
                 style: BondhonButtonStyle.secondary,
                 onPressed: () => context.go(AppRoutes.login),
               ),
               const SizedBox(height: AppSpacing.lg),
               Text(
-                'Guest Mode চালু আছে। Authentication পরে Firebase-এর সঙ্গে যুক্ত করা হবে।',
+                strings.guestModeInfo,
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.bodySmall?.copyWith(
                       color: colors.onSurfaceVariant,

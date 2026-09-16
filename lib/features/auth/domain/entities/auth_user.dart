@@ -8,7 +8,7 @@ class AuthUser {
 
   const AuthUser.guest()
       : id = 'guest',
-        displayName = 'অতিথি ব্যবহারকারী',
+        displayName = 'Guest User',
         email = null,
         isGuest = true;
 
