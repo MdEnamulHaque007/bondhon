@@ -1,0 +1,11 @@
+{
+  "name": "Bondhon",
+  "short_name": "Bondhon",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#006A4E",
+  "description": "A modern Bangladeshi social chat and community platform.",
+  "orientation": "portrait-primary",
+  "prefer_related_applications": false
+}
