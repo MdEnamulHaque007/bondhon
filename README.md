@@ -44,6 +44,14 @@ lib/
 The foundation uses Riverpod for state/dependency management, GoRouter for
 navigation and deep links, and Noto Sans Bengali through Google Fonts.
 
+## Design system
+
+- Bangladesh-inspired green and red brand palette
+- Noto Sans Bengali typography scale
+- Shared spacing and radius tokens
+- Reusable buttons, form fields, loading states, and brand mark
+- Responsive welcome experience for mobile, tablet, and web
+
 ## Generate native platform folders
 
 If Android or iOS folders are not present, run this once from the project root:

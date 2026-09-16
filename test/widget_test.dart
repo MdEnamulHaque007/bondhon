@@ -8,6 +8,8 @@ void main() {
 
     expect(find.text('Bondhon'), findsOneWidget);
     expect(find.text('কথায় কথায় গড়ে উঠুক বন্ধন'), findsOneWidget);
-    expect(find.text('শুরু করুন'), findsOneWidget);
+    expect(find.text('নতুন অ্যাকাউন্ট তৈরি করুন'), findsOneWidget);
+    expect(find.text('লগইন করুন'), findsOneWidget);
+    expect(find.textContaining('নিরাপদে কথা বলুন'), findsOneWidget);
   });
 }

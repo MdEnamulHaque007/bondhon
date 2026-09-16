@@ -1,3 +1,4 @@
+import 'package:bondhon/app/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class BrandMark extends StatelessWidget {
@@ -15,13 +16,41 @@ class BrandMark extends StatelessWidget {
         width: size,
         height: size,
         decoration: BoxDecoration(
-          color: colors.primaryContainer,
-          shape: BoxShape.circle,
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [colors.primary, AppColors.bondhonGreenDark],
+          ),
+          borderRadius: BorderRadius.circular(size * 0.28),
+          boxShadow: [
+            BoxShadow(
+              color: colors.primary.withValues(alpha: 0.24),
+              blurRadius: size * 0.22,
+              offset: Offset(0, size * 0.1),
+            ),
+          ],
         ),
-        child: Icon(
-          Icons.forum_rounded,
-          size: size * 0.52,
-          color: colors.primary,
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Icon(
+              Icons.forum_rounded,
+              size: size * 0.54,
+              color: AppColors.white,
+            ),
+            Positioned(
+              right: size * 0.2,
+              top: size * 0.19,
+              child: Container(
+                width: size * 0.16,
+                height: size * 0.16,
+                decoration: const BoxDecoration(
+                  color: AppColors.bondhonRed,
+                  shape: BoxShape.circle,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
