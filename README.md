@@ -18,6 +18,32 @@ flutter pub get
 flutter run
 ```
 
+Production-like environment values can be supplied with Dart defines:
+
+```bash
+flutter run \
+  --dart-define=APP_ENV=staging \
+  --dart-define=API_BASE_URL=https://api.example.com
+```
+
+Supported `APP_ENV` values are `development`, `staging`, and `production`.
+Never commit secrets to the repository; production secrets will be configured
+through Firebase/Vercel when those services are added.
+
+## Foundation architecture
+
+```text
+lib/
+├── app/                 # App shell, routing, and theme
+├── core/                # Environment, constants, and shared error handling
+├── features/            # Feature-first modules
+├── shared/              # Reusable UI components
+└── main.dart            # Bootstrap and global error boundary
+```
+
+The foundation uses Riverpod for state/dependency management, GoRouter for
+navigation and deep links, and Noto Sans Bengali through Google Fonts.
+
 ## Generate native platform folders
 
 If Android or iOS folders are not present, run this once from the project root:

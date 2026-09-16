@@ -10,4 +10,5 @@ fi
 
 "$flutter_root/bin/flutter" config --enable-web
 "$flutter_root/bin/flutter" pub get
-"$flutter_root/bin/flutter" build web --release
+"$flutter_root/bin/flutter" build web --release \
+  --dart-define=APP_ENV=production
