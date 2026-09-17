@@ -14,7 +14,9 @@ class ThemeController extends ChangeNotifier {
   ThemeController({SharedPreferencesAsync? preferences})
       : _preferences = preferences ?? SharedPreferencesAsync();
 
+  static final ThemeController instance = ThemeController();
   static const storageKey = 'bondhon_theme_variant';
+
   final SharedPreferencesAsync _preferences;
   AppThemeVariant _variant = AppThemeVariant.bondhon;
 
