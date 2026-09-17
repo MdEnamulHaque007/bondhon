@@ -52,9 +52,20 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    strings.discoverPeople,
-                    style: Theme.of(context).textTheme.headlineMedium,
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          strings.discoverPeople,
+                          style: Theme.of(context).textTheme.headlineMedium,
+                        ),
+                      ),
+                      FilledButton.tonalIcon(
+                        onPressed: () => context.go(AppRoutes.friends),
+                        icon: const Icon(Icons.people_outline_rounded),
+                        label: Text(strings.friendsAndRequests),
+                      ),
+                    ],
                   ),
                   const SizedBox(height: AppSpacing.xs),
                   Text(

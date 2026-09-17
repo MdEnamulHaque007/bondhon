@@ -55,6 +55,19 @@ class DiscoverRepository {
       mutualFriends: 1,
       avatarColor: Color(0xFF2E7D32),
     ),
+    DiscoverUser(
+      id: 'rafi-hasan',
+      displayName: 'Rafi Hasan',
+      username: 'rafi_h',
+      location: 'Dhaka',
+      bio: 'Student, reader, and active member of study communities.',
+      interests: ['Study', 'Books', 'Technology'],
+      isOnline: false,
+      isNearby: true,
+      mutualFriends: 5,
+      avatarColor: Color(0xFF1565C0),
+      friendshipStatus: FriendshipStatus.friends,
+    ),
   ];
 
   List<DiscoverUser> search({

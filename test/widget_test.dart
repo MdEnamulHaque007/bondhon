@@ -133,4 +133,37 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Request sent'), findsOneWidget);
   });
+
+  testWidgets('guest can accept and cancel friend requests', (tester) async {
+    SharedPreferences.setMockInitialValues({});
+    final languageController = LanguageController();
+    await tester.pumpWidget(
+      ProviderScope(
+        child: BondhonApp(languageController: languageController),
+      ),
+    );
+
+    await tester.tap(find.text('Enter now'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Discover').first);
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Friends & Requests'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Maliha Sultana'), findsOneWidget);
+    await tester.tap(find.text('Incoming (2)'));
+    await tester.pumpAndSettle();
+    expect(find.text('Nusrat Jahan'), findsOneWidget);
+
+    await tester.tap(find.text('Accept').first);
+    await tester.pumpAndSettle();
+    expect(find.text('Friend request accepted.'), findsOneWidget);
+
+    await tester.tap(find.text('Outgoing'));
+    await tester.pumpAndSettle();
+    expect(find.text('Tanvir Ahmed'), findsOneWidget);
+    await tester.tap(find.text('Cancel request'));
+    await tester.pumpAndSettle();
+    expect(find.text('Friend request cancelled.'), findsOneWidget);
+  });
 }

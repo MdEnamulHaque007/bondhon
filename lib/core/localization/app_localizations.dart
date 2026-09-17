@@ -136,6 +136,20 @@ class AppLocalizations {
   String get backToDiscover => _text('backToDiscover');
   String get about => _text('about');
   String get interests => _text('interests');
+  String get friendsAndRequests => _text('friendsAndRequests');
+  String get searchFriends => _text('searchFriends');
+  String get friends => _text('friends');
+  String get incoming => _text('incoming');
+  String get outgoing => _text('outgoing');
+  String get accept => _text('accept');
+  String get reject => _text('reject');
+  String get cancelRequest => _text('cancelRequest');
+  String get noFriendsFound => _text('noFriendsFound');
+  String get noIncomingRequests => _text('noIncomingRequests');
+  String get noOutgoingRequests => _text('noOutgoingRequests');
+  String get friendRequestAccepted => _text('friendRequestAccepted');
+  String get friendRequestRejected => _text('friendRequestRejected');
+  String get friendRequestCancelled => _text('friendRequestCancelled');
   String mutualFriendCount(int count) => '$count ${_text('mutualFriends')}';
   String memberCount(int count) => '$count ${_text('members')}';
   String welcomeUser(String name) => '${_text('welcomePrefix')}, $name';
@@ -265,6 +279,20 @@ class AppLocalizations {
       'backToDiscover': 'Back to discover',
       'about': 'About',
       'interests': 'Interests',
+      'friendsAndRequests': 'Friends & Requests',
+      'searchFriends': 'Search friends or requests',
+      'friends': 'Friends',
+      'incoming': 'Incoming',
+      'outgoing': 'Outgoing',
+      'accept': 'Accept',
+      'reject': 'Reject',
+      'cancelRequest': 'Cancel request',
+      'noFriendsFound': 'No friends match your search.',
+      'noIncomingRequests': 'No incoming friend requests.',
+      'noOutgoingRequests': 'No outgoing friend requests.',
+      'friendRequestAccepted': 'Friend request accepted.',
+      'friendRequestRejected': 'Friend request rejected.',
+      'friendRequestCancelled': 'Friend request cancelled.',
     },
     'bn': {
       'language': 'ভাষা',
@@ -387,6 +415,20 @@ class AppLocalizations {
       'backToDiscover': 'Discover-এ ফিরুন',
       'about': 'পরিচিতি',
       'interests': 'আগ্রহ',
+      'friendsAndRequests': 'বন্ধু ও অনুরোধ',
+      'searchFriends': 'বন্ধু বা অনুরোধ খুঁজুন',
+      'friends': 'বন্ধু',
+      'incoming': 'আসা অনুরোধ',
+      'outgoing': 'পাঠানো অনুরোধ',
+      'accept': 'গ্রহণ করুন',
+      'reject': 'প্রত্যাখ্যান করুন',
+      'cancelRequest': 'অনুরোধ বাতিল করুন',
+      'noFriendsFound': 'আপনার অনুসন্ধানের সঙ্গে কোনো বন্ধু পাওয়া যায়নি।',
+      'noIncomingRequests': 'কোনো নতুন বন্ধুত্বের অনুরোধ নেই।',
+      'noOutgoingRequests': 'কোনো পাঠানো বন্ধুত্বের অনুরোধ নেই।',
+      'friendRequestAccepted': 'বন্ধুত্বের অনুরোধ গ্রহণ করা হয়েছে।',
+      'friendRequestRejected': 'বন্ধুত্বের অনুরোধ প্রত্যাখ্যান করা হয়েছে।',
+      'friendRequestCancelled': 'বন্ধুত্বের অনুরোধ বাতিল করা হয়েছে।',
     },
   };
 }

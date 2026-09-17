@@ -90,6 +90,13 @@ is active in the current build.
 - Responsive profile cards with presence and mutual-friend indicators
 - Profile preview routes and local friend-request state
 
+## Friends and requests
+
+- Friends directory with search, online presence, profile, and message actions
+- Separate incoming and outgoing request tabs
+- Local accept, reject, and cancel-request interactions with status feedback
+- Repository-driven relationship state ready for backend synchronization
+
 ## Foundation architecture
 
 ```text
