@@ -71,6 +71,24 @@ class AppLocalizations {
   String get roomsDescription => _text('roomsDescription');
   String get discoverDescription => _text('discoverDescription');
   String get profileDescription => _text('profileDescription');
+  String get guestAccount => _text('guestAccount');
+  String get personalInformation => _text('personalInformation');
+  String get editProfile => _text('editProfile');
+  String get cancel => _text('cancel');
+  String get username => _text('username');
+  String get usernameHelp => _text('usernameHelp');
+  String get gender => _text('gender');
+  String get male => _text('male');
+  String get female => _text('female');
+  String get preferNotToSay => _text('preferNotToSay');
+  String get country => _text('country');
+  String get bio => _text('bio');
+  String get requiredField => _text('requiredField');
+  String get saveChanges => _text('saveChanges');
+  String get profileSaved => _text('profileSaved');
+  String get languageSettingsInfo => _text('languageSettingsInfo');
+  String get exitGuestMode => _text('exitGuestMode');
+  String get exitGuestModeInfo => _text('exitGuestModeInfo');
   String welcomeUser(String name) => '${_text('welcomePrefix')}, $name';
 
   static const LocalizationsDelegate<AppLocalizations> delegate =
@@ -128,6 +146,24 @@ class AppLocalizations {
       'roomsDescription': 'Join public chat and voice rooms from here.',
       'discoverDescription': 'Discover people, communities, and trending topics.',
       'profileDescription': 'Your guest profile and preferences will appear here.',
+      'guestAccount': 'Guest account',
+      'personalInformation': 'Personal information',
+      'editProfile': 'Edit profile',
+      'cancel': 'Cancel',
+      'username': 'Username',
+      'usernameHelp': 'Use 3–20 letters, numbers, or underscores.',
+      'gender': 'Gender',
+      'male': 'Male',
+      'female': 'Female',
+      'preferNotToSay': 'Prefer not to say',
+      'country': 'Country',
+      'bio': 'Bio',
+      'requiredField': 'This field is required.',
+      'saveChanges': 'Save changes',
+      'profileSaved': 'Profile saved on this device.',
+      'languageSettingsInfo': 'Use the language selector in the app bar.',
+      'exitGuestMode': 'Exit Guest Mode',
+      'exitGuestModeInfo': 'Return to the welcome screen without deleting your profile.',
     },
     'bn': {
       'language': 'ভাষা',
@@ -180,6 +216,24 @@ class AppLocalizations {
       'roomsDescription': 'এখান থেকে public chat ও voice room-এ যোগ দিন।',
       'discoverDescription': 'মানুষ, কমিউনিটি ও জনপ্রিয় বিষয় খুঁজে নিন।',
       'profileDescription': 'আপনার guest profile ও পছন্দগুলো এখানে থাকবে।',
+      'guestAccount': 'অতিথি অ্যাকাউন্ট',
+      'personalInformation': 'ব্যক্তিগত তথ্য',
+      'editProfile': 'প্রোফাইল সম্পাদনা',
+      'cancel': 'বাতিল',
+      'username': 'ইউজারনেম',
+      'usernameHelp': '৩–২০টি ইংরেজি অক্ষর, সংখ্যা বা আন্ডারস্কোর ব্যবহার করুন।',
+      'gender': 'লিঙ্গ',
+      'male': 'পুরুষ',
+      'female': 'নারী',
+      'preferNotToSay': 'উল্লেখ করতে চাই না',
+      'country': 'দেশ',
+      'bio': 'পরিচিতি',
+      'requiredField': 'এই তথ্যটি আবশ্যক।',
+      'saveChanges': 'পরিবর্তন সংরক্ষণ করুন',
+      'profileSaved': 'এই ডিভাইসে প্রোফাইল সংরক্ষিত হয়েছে।',
+      'languageSettingsInfo': 'App bar-এর language selector ব্যবহার করুন।',
+      'exitGuestMode': 'Guest Mode থেকে বের হন',
+      'exitGuestModeInfo': 'প্রোফাইল মুছে না ফেলে welcome screen-এ ফিরে যান।',
     },
   };
 }

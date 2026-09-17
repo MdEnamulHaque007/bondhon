@@ -5,6 +5,7 @@ import 'package:bondhon/features/auth/presentation/screens/login_screen.dart';
 import 'package:bondhon/features/auth/presentation/screens/register_screen.dart';
 import 'package:bondhon/features/home/presentation/screens/home_screen.dart';
 import 'package:bondhon/features/navigation/presentation/screens/feature_placeholder_screen.dart';
+import 'package:bondhon/features/profile/presentation/screens/profile_screen.dart';
 import 'package:bondhon/features/welcome/presentation/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -64,9 +65,7 @@ final GoRouter appRouter = GoRouter(
         GoRoute(
           path: AppRoutes.profile,
           name: 'profile',
-          builder: (context, state) => const FeaturePlaceholderScreen(
-            feature: AppFeature.profile,
-          ),
+          builder: (context, state) => const ProfileScreen(),
         ),
       ],
     ),

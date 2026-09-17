@@ -3,9 +3,11 @@ import 'package:bondhon/core/localization/app_localizations.dart';
 import 'package:bondhon/core/localization/language_controller.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   testWidgets('uses English by default and supports Bangla', (tester) async {
+    SharedPreferences.setMockInitialValues({});
     final languageController = LanguageController();
     await tester.pumpWidget(
       ProviderScope(
@@ -29,10 +31,26 @@ void main() {
     expect(find.text('Discover'), findsOneWidget);
     expect(find.text('Profile'), findsWidgets);
 
+    await tester.tap(find.text('Profile').last);
+    await tester.pumpAndSettle();
+
+    expect(find.text('Guest account'), findsOneWidget);
+    expect(find.text('Personal information'), findsOneWidget);
+    expect(find.text('Edit profile'), findsOneWidget);
+
+    await tester.tap(find.text('Edit profile'));
+    await tester.pumpAndSettle();
+    await tester.enterText(find.byType(TextFormField).at(0), 'Enamul Haque');
+    await tester.enterText(find.byType(TextFormField).at(1), 'enamul_007');
+    await tester.tap(find.text('Save changes'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Profile saved on this device.'), findsOneWidget);
+
     await languageController.changeLanguage(AppLocalizations.banglaLocale);
     await tester.pumpAndSettle();
 
-    expect(find.text('হোম'), findsOneWidget);
-    expect(find.textContaining('অতিথি ব্যবহারকারী'), findsOneWidget);
+    expect(find.text('প্রোফাইল'), findsWidgets);
+    expect(find.text('ব্যক্তিগত তথ্য'), findsOneWidget);
   });
 }

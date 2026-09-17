@@ -57,6 +57,17 @@ is active in the current build.
 - Tablet/Desktop: navigation rail
 - Initial tabs: Home, Chats, Rooms, Discover, and Profile
 
+## Guest profile
+
+- Guest users can edit their name, username, gender, country, and bio without
+  signing in.
+- Profile input is validated and saved on the current device with
+  `SharedPreferencesAsync`.
+- The profile entity and storage layer are separated so Firebase can replace
+  local persistence in a later step.
+- A profile-photo placeholder, bilingual settings information, and Guest Mode
+  exit action are included.
+
 ## Foundation architecture
 
 ```text
@@ -97,7 +108,7 @@ read automatically from `vercel.json`.
 ## Planned MVP
 
 - Firebase Authentication
-- User profile and username
+- Firebase-backed profile synchronization
 - Public chat rooms
 - Private messaging
 - Friends and online presence
