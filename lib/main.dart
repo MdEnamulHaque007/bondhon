@@ -17,7 +17,7 @@ void main() {
 
       final languageController = LanguageController.persistent();
       await languageController.load();
-      final themeController = ThemeController();
+      final themeController = ThemeController.instance;
       await themeController.load();
 
       runApp(
