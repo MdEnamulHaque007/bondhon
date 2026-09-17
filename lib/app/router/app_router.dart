@@ -6,6 +6,8 @@ import 'package:bondhon/features/auth/presentation/screens/register_screen.dart'
 import 'package:bondhon/features/home/presentation/screens/home_screen.dart';
 import 'package:bondhon/features/navigation/presentation/screens/feature_placeholder_screen.dart';
 import 'package:bondhon/features/profile/presentation/screens/profile_screen.dart';
+import 'package:bondhon/features/rooms/presentation/screens/room_details_screen.dart';
+import 'package:bondhon/features/rooms/presentation/screens/rooms_screen.dart';
 import 'package:bondhon/features/welcome/presentation/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -15,11 +17,14 @@ abstract final class AppRoutes {
   static const home = '/home';
   static const chats = '/chats';
   static const rooms = '/rooms';
+  static const room = '/rooms/:roomId';
   static const discover = '/discover';
   static const profile = '/profile';
   static const login = '/login';
   static const register = '/register';
   static const forgotPassword = '/forgot-password';
+
+  static String roomDetails(String roomId) => '/rooms/$roomId';
 }
 
 final GoRouter appRouter = GoRouter(
@@ -51,9 +56,16 @@ final GoRouter appRouter = GoRouter(
         GoRoute(
           path: AppRoutes.rooms,
           name: 'rooms',
-          builder: (context, state) => const FeaturePlaceholderScreen(
-            feature: AppFeature.rooms,
-          ),
+          builder: (context, state) => const RoomsScreen(),
+          routes: [
+            GoRoute(
+              path: ':roomId',
+              name: 'room-details',
+              builder: (context, state) => RoomDetailsScreen(
+                roomId: state.pathParameters['roomId']!,
+              ),
+            ),
+          ],
         ),
         GoRoute(
           path: AppRoutes.discover,

@@ -2,7 +2,7 @@ import 'package:bondhon/app/theme/app_spacing.dart';
 import 'package:bondhon/core/localization/app_localizations.dart';
 import 'package:flutter/material.dart';
 
-enum AppFeature { chats, rooms, discover }
+enum AppFeature { chats, discover }
 
 class FeaturePlaceholderScreen extends StatelessWidget {
   const FeaturePlaceholderScreen({required this.feature, super.key});
@@ -17,11 +17,6 @@ class FeaturePlaceholderScreen extends StatelessWidget {
           icon: Icons.chat_bubble_outline_rounded,
           title: strings.chats,
           description: strings.chatsDescription,
-        ),
-      AppFeature.rooms => (
-          icon: Icons.forum_outlined,
-          title: strings.rooms,
-          description: strings.roomsDescription,
         ),
       AppFeature.discover => (
           icon: Icons.explore_outlined,

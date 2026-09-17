@@ -53,4 +53,31 @@ void main() {
     expect(find.text('প্রোফাইল'), findsWidgets);
     expect(find.text('ব্যক্তিগত তথ্য'), findsOneWidget);
   });
+
+  testWidgets('guest can browse and join a public room', (tester) async {
+    SharedPreferences.setMockInitialValues({});
+    final languageController = LanguageController();
+    await tester.pumpWidget(
+      ProviderScope(
+        child: BondhonApp(languageController: languageController),
+      ),
+    );
+
+    await tester.tap(find.text('Enter now'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Rooms').first);
+    await tester.pumpAndSettle();
+
+    expect(find.text('Public Chat Rooms'), findsOneWidget);
+    expect(find.text('Bondhutto Corner'), findsOneWidget);
+
+    await tester.tap(find.text('Bondhutto Corner'));
+    await tester.pumpAndSettle();
+    expect(find.text('Join as guest'), findsOneWidget);
+
+    await tester.tap(find.text('Join as guest'));
+    await tester.pumpAndSettle();
+    expect(find.text('Joined'), findsOneWidget);
+    expect(find.byType(TextField), findsOneWidget);
+  });
 }

@@ -89,6 +89,26 @@ class AppLocalizations {
   String get languageSettingsInfo => _text('languageSettingsInfo');
   String get exitGuestMode => _text('exitGuestMode');
   String get exitGuestModeInfo => _text('exitGuestModeInfo');
+  String get publicChatRooms => _text('publicChatRooms');
+  String get publicChatRoomsDescription => _text('publicChatRoomsDescription');
+  String get searchRooms => _text('searchRooms');
+  String get clearSearch => _text('clearSearch');
+  String get all => _text('all');
+  String get friendship => _text('friendship');
+  String get regional => _text('regional');
+  String get education => _text('education');
+  String get entertainment => _text('entertainment');
+  String get noRoomsFound => _text('noRoomsFound');
+  String get live => _text('live');
+  String get viewRoom => _text('viewRoom');
+  String get roomNotFound => _text('roomNotFound');
+  String get backToRooms => _text('backToRooms');
+  String get joinAsGuest => _text('joinAsGuest');
+  String get joined => _text('joined');
+  String get typeMessage => _text('typeMessage');
+  String get send => _text('send');
+  String get joinToSendMessages => _text('joinToSendMessages');
+  String memberCount(int count) => '$count ${_text('members')}';
   String welcomeUser(String name) => '${_text('welcomePrefix')}, $name';
 
   static const LocalizationsDelegate<AppLocalizations> delegate =
@@ -164,6 +184,27 @@ class AppLocalizations {
       'languageSettingsInfo': 'Use the language selector in the app bar.',
       'exitGuestMode': 'Exit Guest Mode',
       'exitGuestModeInfo': 'Return to the welcome screen without deleting your profile.',
+      'publicChatRooms': 'Public Chat Rooms',
+      'publicChatRoomsDescription':
+          'Find a community, preview conversations, and join instantly as a guest.',
+      'searchRooms': 'Search rooms',
+      'clearSearch': 'Clear search',
+      'all': 'All',
+      'friendship': 'Friendship',
+      'regional': 'Regional',
+      'education': 'Education',
+      'entertainment': 'Entertainment',
+      'noRoomsFound': 'No rooms match your search.',
+      'live': 'Live',
+      'viewRoom': 'View room',
+      'members': 'members',
+      'roomNotFound': 'Room not found.',
+      'backToRooms': 'Back to rooms',
+      'joinAsGuest': 'Join as guest',
+      'joined': 'Joined',
+      'typeMessage': 'Type a message',
+      'send': 'Send',
+      'joinToSendMessages': 'Join this room as a guest to send messages.',
     },
     'bn': {
       'language': 'ভাষা',
@@ -234,6 +275,27 @@ class AppLocalizations {
       'languageSettingsInfo': 'App bar-এর language selector ব্যবহার করুন।',
       'exitGuestMode': 'Guest Mode থেকে বের হন',
       'exitGuestModeInfo': 'প্রোফাইল মুছে না ফেলে welcome screen-এ ফিরে যান।',
+      'publicChatRooms': 'পাবলিক চ্যাট রুম',
+      'publicChatRoomsDescription':
+          'কমিউনিটি খুঁজুন, কথোপকথন দেখুন এবং অতিথি হিসেবে সরাসরি যোগ দিন।',
+      'searchRooms': 'রুম খুঁজুন',
+      'clearSearch': 'অনুসন্ধান মুছুন',
+      'all': 'সব',
+      'friendship': 'বন্ধুত্ব',
+      'regional': 'আঞ্চলিক',
+      'education': 'শিক্ষা',
+      'entertainment': 'বিনোদন',
+      'noRoomsFound': 'আপনার অনুসন্ধানের সঙ্গে কোনো রুম পাওয়া যায়নি।',
+      'live': 'লাইভ',
+      'viewRoom': 'রুম দেখুন',
+      'members': 'সদস্য',
+      'roomNotFound': 'রুমটি পাওয়া যায়নি।',
+      'backToRooms': 'রুম তালিকায় ফিরুন',
+      'joinAsGuest': 'অতিথি হিসেবে যোগ দিন',
+      'joined': 'যোগ দিয়েছেন',
+      'typeMessage': 'মেসেজ লিখুন',
+      'send': 'পাঠান',
+      'joinToSendMessages': 'মেসেজ পাঠাতে অতিথি হিসেবে এই রুমে যোগ দিন।',
     },
   };
 }

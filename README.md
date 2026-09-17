@@ -68,6 +68,14 @@ is active in the current build.
 - A profile-photo placeholder, bilingual settings information, and Guest Mode
   exit action are included.
 
+## Public chat rooms
+
+- Searchable room directory with friendship, regional, education, and
+  entertainment categories
+- Responsive room cards with member counts and live indicators
+- Room detail route with preview messages and a Guest Mode join flow
+- Local message composer structure ready for a future real-time backend
+
 ## Foundation architecture
 
 ```text
