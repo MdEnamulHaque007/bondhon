@@ -170,6 +170,16 @@ class AppLocalizations {
   String get noBlockedUsers => _text('noBlockedUsers');
   String get unblock => _text('unblock');
   String get userUnblocked => _text('userUnblocked');
+  String get notifications => _text('notifications');
+  String get unread => _text('unread');
+  String get markAllAsRead => _text('markAllAsRead');
+  String get clearAll => _text('clearAll');
+  String get clearNotifications => _text('clearNotifications');
+  String get clearNotificationsConfirmation =>
+      _text('clearNotificationsConfirmation');
+  String get noNotifications => _text('noNotifications');
+  String get noUnreadNotifications => _text('noUnreadNotifications');
+  String get deleteNotification => _text('deleteNotification');
   String blockUserConfirmation(String name) =>
       _text('blockUserConfirmation').replaceAll('{name}', name);
   String mutualFriendCount(int count) => '$count ${_text('mutualFriends')}';
@@ -338,6 +348,16 @@ class AppLocalizations {
       'noBlockedUsers': 'You have not blocked anyone.',
       'unblock': 'Unblock',
       'userUnblocked': 'User unblocked.',
+      'notifications': 'Notifications',
+      'unread': 'Unread',
+      'markAllAsRead': 'Mark all as read',
+      'clearAll': 'Clear all',
+      'clearNotifications': 'Clear notifications?',
+      'clearNotificationsConfirmation':
+          'This will permanently remove all notifications from this device.',
+      'noNotifications': 'You have no notifications.',
+      'noUnreadNotifications': 'You have no unread notifications.',
+      'deleteNotification': 'Delete notification',
     },
     'bn': {
       'language': 'ভাষা',
@@ -497,6 +517,16 @@ class AppLocalizations {
       'noBlockedUsers': 'আপনি কাউকে ব্লক করেননি।',
       'unblock': 'আনব্লক করুন',
       'userUnblocked': 'ব্যবহারকারীকে আনব্লক করা হয়েছে।',
+      'notifications': 'নোটিফিকেশন',
+      'unread': 'না-পড়া',
+      'markAllAsRead': 'সব পড়া হয়েছে হিসেবে চিহ্নিত করুন',
+      'clearAll': 'সব মুছুন',
+      'clearNotifications': 'সব নোটিফিকেশন মুছবেন?',
+      'clearNotificationsConfirmation':
+          'এতে এই ডিভাইস থেকে সব নোটিফিকেশন স্থায়ীভাবে মুছে যাবে।',
+      'noNotifications': 'আপনার কোনো নোটিফিকেশন নেই।',
+      'noUnreadNotifications': 'আপনার কোনো না-পড়া নোটিফিকেশন নেই।',
+      'deleteNotification': 'নোটিফিকেশন মুছুন',
     },
   };
 }

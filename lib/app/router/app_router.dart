@@ -9,6 +9,7 @@ import 'package:bondhon/features/discover/presentation/screens/discover_profile_
 import 'package:bondhon/features/discover/presentation/screens/discover_screen.dart';
 import 'package:bondhon/features/friends/presentation/screens/friends_screen.dart';
 import 'package:bondhon/features/home/presentation/screens/home_screen.dart';
+import 'package:bondhon/features/notifications/presentation/screens/notifications_screen.dart';
 import 'package:bondhon/features/profile/presentation/screens/profile_screen.dart';
 import 'package:bondhon/features/rooms/presentation/screens/room_details_screen.dart';
 import 'package:bondhon/features/rooms/presentation/screens/rooms_screen.dart';
@@ -29,6 +30,7 @@ abstract final class AppRoutes {
   static const friends = '/discover/friends';
   static const profile = '/profile';
   static const blockedUsers = '/profile/blocked-users';
+  static const notifications = '/notifications';
   static const login = '/login';
   static const register = '/register';
   static const forgotPassword = '/forgot-password';
@@ -56,6 +58,11 @@ final GoRouter appRouter = GoRouter(
           path: AppRoutes.home,
           name: 'home',
           builder: (context, state) => const HomeScreen(),
+        ),
+        GoRoute(
+          path: AppRoutes.notifications,
+          name: 'notifications',
+          builder: (context, state) => const NotificationsScreen(),
         ),
         GoRoute(
           path: AppRoutes.chats,

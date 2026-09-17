@@ -1,10 +1,11 @@
 import 'package:bondhon/app/router/app_router.dart';
 import 'package:bondhon/core/localization/app_localizations.dart';
+import 'package:bondhon/features/notifications/presentation/controllers/notification_center.dart';
 import 'package:bondhon/shared/widgets/language_selector.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class AppShell extends StatelessWidget {
+class AppShell extends StatefulWidget {
   const AppShell({
     required this.location,
     required this.child,
@@ -14,6 +15,11 @@ class AppShell extends StatelessWidget {
   final String location;
   final Widget child;
 
+  @override
+  State<AppShell> createState() => _AppShellState();
+}
+
+class _AppShellState extends State<AppShell> {
   static const _paths = [
     AppRoutes.home,
     AppRoutes.chats,
@@ -23,8 +29,14 @@ class AppShell extends StatelessWidget {
   ];
 
   int get _selectedIndex {
-    final index = _paths.indexWhere((path) => location.startsWith(path));
+    final index = _paths.indexWhere((path) => widget.location.startsWith(path));
     return index < 0 ? 0 : index;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    notificationCenter.load();
   }
 
   void _goTo(BuildContext context, int index) {
@@ -48,6 +60,18 @@ class AppShell extends StatelessWidget {
         final appBar = AppBar(
           title: const Text('Bondhon'),
           actions: [
+            AnimatedBuilder(
+              animation: notificationCenter,
+              builder: (context, _) => Badge.count(
+                count: notificationCenter.unreadCount,
+                isLabelVisible: notificationCenter.unreadCount > 0,
+                child: IconButton(
+                  tooltip: strings.notifications,
+                  onPressed: () => context.go(AppRoutes.notifications),
+                  icon: const Icon(Icons.notifications_outlined),
+                ),
+              ),
+            ),
             LanguageSelector(compact: constraints.maxWidth < 520),
             IconButton(
               tooltip: strings.back,
@@ -60,7 +84,7 @@ class AppShell extends StatelessWidget {
         if (!useRail) {
           return Scaffold(
             appBar: appBar,
-            body: child,
+            body: widget.child,
             bottomNavigationBar: NavigationBar(
               selectedIndex: _selectedIndex,
               onDestinationSelected: (index) => _goTo(context, index),
@@ -94,7 +118,7 @@ class AppShell extends StatelessWidget {
                 ],
               ),
               const VerticalDivider(width: 1),
-              Expanded(child: child),
+              Expanded(child: widget.child),
             ],
           ),
         );

@@ -1,6 +1,7 @@
 import 'package:bondhon/app/app.dart';
 import 'package:bondhon/core/localization/app_localizations.dart';
 import 'package:bondhon/core/localization/language_controller.dart';
+import 'package:bondhon/features/notifications/presentation/controllers/notification_center.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -197,5 +198,33 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Discover People'), findsOneWidget);
     expect(find.text('Ayesha Khan'), findsNothing);
+  });
+
+  testWidgets('guest can manage notification read state', (tester) async {
+    SharedPreferences.setMockInitialValues({});
+    notificationCenter.reset();
+    final languageController = LanguageController();
+    await tester.pumpWidget(
+      ProviderScope(
+        child: BondhonApp(languageController: languageController),
+      ),
+    );
+
+    await tester.tap(find.text('Enter now'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byIcon(Icons.notifications_outlined));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Notifications'), findsOneWidget);
+    expect(find.text('Unread (2)'), findsOneWidget);
+    expect(find.text('New friend request'), findsOneWidget);
+
+    await tester.tap(find.text('Mark all as read'));
+    await tester.pumpAndSettle();
+    expect(find.text('Unread (0)'), findsOneWidget);
+
+    await tester.tap(find.byTooltip('Delete notification').first);
+    await tester.pumpAndSettle();
+    expect(find.text('New friend request'), findsNothing);
   });
 }

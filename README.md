@@ -104,6 +104,13 @@ is active in the current build.
 - Local safety storage for moderation reports and blocked-user IDs
 - Blocked-users management screen with unblock support
 
+## Notifications
+
+- App-bar notification badge with a live unread count
+- Friend request, accepted request, private message, and room activity alerts
+- Read/unread filtering, mark-all-read, individual deletion, and clear-all actions
+- Local persistence with bilingual notification content and Firebase-ready models
+
 ## Foundation architecture
 
 ```text
