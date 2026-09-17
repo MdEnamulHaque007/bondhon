@@ -107,4 +107,30 @@ void main() {
 
     expect(find.text('Hello Nadia'), findsOneWidget);
   });
+
+  testWidgets('guest can preview a profile and send a friend request', (tester) async {
+    SharedPreferences.setMockInitialValues({});
+    final languageController = LanguageController();
+    await tester.pumpWidget(
+      ProviderScope(
+        child: BondhonApp(languageController: languageController),
+      ),
+    );
+
+    await tester.tap(find.text('Enter now'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Discover').first);
+    await tester.pumpAndSettle();
+
+    expect(find.text('Discover People'), findsOneWidget);
+    expect(find.text('Ayesha Khan'), findsOneWidget);
+
+    await tester.tap(find.text('Ayesha Khan'));
+    await tester.pumpAndSettle();
+    expect(find.text('About'), findsOneWidget);
+
+    await tester.tap(find.text('Add friend'));
+    await tester.pumpAndSettle();
+    expect(find.text('Request sent'), findsOneWidget);
+  });
 }

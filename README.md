@@ -83,6 +83,13 @@ is active in the current build.
 - Guest message composer with local sent/read presentation
 - Invalid-conversation handling and bilingual interface text
 
+## Discover and friends
+
+- Search people by name, username, location, or interests
+- Filter by online status, nearby users, and common interests
+- Responsive profile cards with presence and mutual-friend indicators
+- Profile preview routes and local friend-request state
+
 ## Foundation architecture
 
 ```text

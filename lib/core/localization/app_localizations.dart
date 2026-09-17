@@ -121,6 +121,22 @@ class AppLocalizations {
   String get profileComingSoon => _text('profileComingSoon');
   String get read => _text('read');
   String get sent => _text('sent');
+  String get discoverPeople => _text('discoverPeople');
+  String get discoverPeopleDescription => _text('discoverPeopleDescription');
+  String get searchPeople => _text('searchPeople');
+  String get onlineNow => _text('onlineNow');
+  String get nearby => _text('nearby');
+  String get commonInterests => _text('commonInterests');
+  String get noPeopleFound => _text('noPeopleFound');
+  String get viewProfile => _text('viewProfile');
+  String get addFriend => _text('addFriend');
+  String get requestSent => _text('requestSent');
+  String get message => _text('message');
+  String get userNotFound => _text('userNotFound');
+  String get backToDiscover => _text('backToDiscover');
+  String get about => _text('about');
+  String get interests => _text('interests');
+  String mutualFriendCount(int count) => '$count ${_text('mutualFriends')}';
   String memberCount(int count) => '$count ${_text('members')}';
   String welcomeUser(String name) => '${_text('welcomePrefix')}, $name';
 
@@ -232,6 +248,23 @@ class AppLocalizations {
       'profileComingSoon': 'User profile details will be connected in a future step.',
       'read': 'Read',
       'sent': 'Sent',
+      'discoverPeople': 'Discover People',
+      'discoverPeopleDescription':
+          'Find people, explore shared interests, and build new friendships.',
+      'searchPeople': 'Search people, location, or interests',
+      'onlineNow': 'Online now',
+      'nearby': 'Nearby',
+      'commonInterests': 'Common interests',
+      'noPeopleFound': 'No people match your search.',
+      'viewProfile': 'View profile',
+      'addFriend': 'Add friend',
+      'requestSent': 'Request sent',
+      'message': 'Message',
+      'mutualFriends': 'mutual friends',
+      'userNotFound': 'User not found.',
+      'backToDiscover': 'Back to discover',
+      'about': 'About',
+      'interests': 'Interests',
     },
     'bn': {
       'language': 'ভাষা',
@@ -337,6 +370,23 @@ class AppLocalizations {
       'profileComingSoon': 'পরবর্তী ধাপে ব্যবহারকারীর প্রোফাইল যুক্ত করা হবে।',
       'read': 'পড়া হয়েছে',
       'sent': 'পাঠানো হয়েছে',
+      'discoverPeople': 'মানুষ খুঁজুন',
+      'discoverPeopleDescription':
+          'মানুষ খুঁজুন, মিল থাকা আগ্রহ দেখুন এবং নতুন বন্ধুত্ব গড়ে তুলুন।',
+      'searchPeople': 'মানুষ, স্থান বা আগ্রহ খুঁজুন',
+      'onlineNow': 'এখন অনলাইনে',
+      'nearby': 'কাছাকাছি',
+      'commonInterests': 'একই আগ্রহ',
+      'noPeopleFound': 'আপনার অনুসন্ধানের সঙ্গে কাউকে পাওয়া যায়নি।',
+      'viewProfile': 'প্রোফাইল দেখুন',
+      'addFriend': 'বন্ধু যোগ করুন',
+      'requestSent': 'অনুরোধ পাঠানো হয়েছে',
+      'message': 'মেসেজ',
+      'mutualFriends': 'জন পারস্পরিক বন্ধু',
+      'userNotFound': 'ব্যবহারকারীকে পাওয়া যায়নি।',
+      'backToDiscover': 'Discover-এ ফিরুন',
+      'about': 'পরিচিতি',
+      'interests': 'আগ্রহ',
     },
   };
 }

@@ -5,8 +5,9 @@ import 'package:bondhon/features/auth/presentation/screens/login_screen.dart';
 import 'package:bondhon/features/auth/presentation/screens/register_screen.dart';
 import 'package:bondhon/features/chats/presentation/screens/chats_screen.dart';
 import 'package:bondhon/features/chats/presentation/screens/direct_chat_screen.dart';
+import 'package:bondhon/features/discover/presentation/screens/discover_profile_screen.dart';
+import 'package:bondhon/features/discover/presentation/screens/discover_screen.dart';
 import 'package:bondhon/features/home/presentation/screens/home_screen.dart';
-import 'package:bondhon/features/navigation/presentation/screens/feature_placeholder_screen.dart';
 import 'package:bondhon/features/profile/presentation/screens/profile_screen.dart';
 import 'package:bondhon/features/rooms/presentation/screens/room_details_screen.dart';
 import 'package:bondhon/features/rooms/presentation/screens/rooms_screen.dart';
@@ -22,6 +23,7 @@ abstract final class AppRoutes {
   static const rooms = '/rooms';
   static const room = '/rooms/:roomId';
   static const discover = '/discover';
+  static const discoverUser = '/discover/:userId';
   static const profile = '/profile';
   static const login = '/login';
   static const register = '/register';
@@ -29,6 +31,7 @@ abstract final class AppRoutes {
 
   static String roomDetails(String roomId) => '/rooms/$roomId';
   static String chatDetails(String conversationId) => '/chats/$conversationId';
+  static String discoverProfile(String userId) => '/discover/$userId';
 }
 
 final GoRouter appRouter = GoRouter(
@@ -81,9 +84,16 @@ final GoRouter appRouter = GoRouter(
         GoRoute(
           path: AppRoutes.discover,
           name: 'discover',
-          builder: (context, state) => const FeaturePlaceholderScreen(
-            feature: AppFeature.discover,
-          ),
+          builder: (context, state) => const DiscoverScreen(),
+          routes: [
+            GoRoute(
+              path: ':userId',
+              name: 'discover-profile',
+              builder: (context, state) => DiscoverProfileScreen(
+                userId: state.pathParameters['userId']!,
+              ),
+            ),
+          ],
         ),
         GoRoute(
           path: AppRoutes.profile,
