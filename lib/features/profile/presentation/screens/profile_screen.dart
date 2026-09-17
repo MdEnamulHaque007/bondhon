@@ -27,6 +27,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   final _bioController = TextEditingController();
   late final ProfileStorage _storage;
   late final ThemeController _themeController;
+  late final bool _ownsThemeController;
   String _gender = UserProfile.guest.gender;
   bool _loading = true;
   bool _saving = false;
@@ -36,10 +37,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
   void initState() {
     super.initState();
     _storage = widget.storage ?? ProfileStorage();
-    _themeController = widget.themeController ?? ThemeController();
-    if (widget.themeController == null) {
-      _themeController.load();
-    }
+    _ownsThemeController = widget.themeController != null;
+    _themeController = widget.themeController ?? ThemeController.instance;
     _loadProfile();
   }
 
@@ -83,7 +82,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     _usernameController.dispose();
     _countryController.dispose();
     _bioController.dispose();
-    if (widget.themeController == null) _themeController.dispose();
+    if (_ownsThemeController) _themeController.dispose();
     super.dispose();
   }
 
