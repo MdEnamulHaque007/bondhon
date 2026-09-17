@@ -1,6 +1,7 @@
 import 'package:bondhon/app/router/app_router.dart';
 import 'package:bondhon/app/theme/app_colors.dart';
 import 'package:bondhon/app/theme/app_spacing.dart';
+import 'package:bondhon/app/theme/theme_controller.dart';
 import 'package:bondhon/core/localization/app_localizations.dart';
 import 'package:bondhon/features/profile/data/profile_storage.dart';
 import 'package:bondhon/features/profile/domain/entities/user_profile.dart';
@@ -9,9 +10,10 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({super.key, this.storage});
+  const ProfileScreen({super.key, this.storage, this.themeController});
 
   final ProfileStorage? storage;
+  final ThemeController? themeController;
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
@@ -24,6 +26,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   final _countryController = TextEditingController();
   final _bioController = TextEditingController();
   late final ProfileStorage _storage;
+  late final ThemeController _themeController;
   String _gender = UserProfile.guest.gender;
   bool _loading = true;
   bool _saving = false;
@@ -33,6 +36,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
   void initState() {
     super.initState();
     _storage = widget.storage ?? ProfileStorage();
+    _themeController = widget.themeController ?? ThemeController();
+    if (widget.themeController == null) {
+      _themeController.load();
+    }
     _loadProfile();
   }
 
@@ -76,6 +83,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     _usernameController.dispose();
     _countryController.dispose();
     _bioController.dispose();
+    if (widget.themeController == null) _themeController.dispose();
     super.dispose();
   }
 
@@ -215,6 +223,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       child: Column(
                         children: [
                           ListTile(
+                            leading: const Icon(Icons.palette_outlined),
+                            title: const Text('Theme'),
+                            subtitle: const Text('Customize Bondhon appearance'),
+                            trailing: const Icon(Icons.chevron_right_rounded),
+                            onTap: () => _openThemeSettings(context),
+                          ),
+                          const Divider(height: 1),
+                          ListTile(
                             leading: const Icon(Icons.language_rounded),
                             title: Text(strings.language),
                             subtitle: Text(strings.languageSettingsInfo),
@@ -243,6 +259,90 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
         ],
       ),
+    );
+  }
+
+  Future<void> _openThemeSettings(BuildContext context) async {
+    await showModalBottomSheet<void>(
+      context: context,
+      showDragHandle: true,
+      builder: (context) => _ThemeSettingsSheet(controller: _themeController),
+    );
+    if (mounted) setState(() {});
+  }
+}
+
+class _ThemeSettingsSheet extends StatelessWidget {
+  const _ThemeSettingsSheet({required this.controller});
+
+  final ThemeController controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedBuilder(
+      animation: controller,
+      builder: (context, _) => SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(AppSpacing.lg, 0, AppSpacing.lg, AppSpacing.lg),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text('Theme Settings', style: Theme.of(context).textTheme.headlineSmall),
+              const SizedBox(height: AppSpacing.xs),
+              Text(
+                'Choose a look for the entire Bondhon app.',
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+              const SizedBox(height: AppSpacing.md),
+              ...AppThemeVariant.values.map(
+                (variant) => _ThemeOption(
+                  variant: variant,
+                  selected: controller.variant == variant,
+                  onTap: () => controller.setVariant(variant),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _ThemeOption extends StatelessWidget {
+  const _ThemeOption({required this.variant, required this.selected, required this.onTap});
+
+  final AppThemeVariant variant;
+  final bool selected;
+  final VoidCallback onTap;
+
+  String get title => switch (variant) {
+        AppThemeVariant.bondhon => 'Bondhon',
+        AppThemeVariant.blue => 'Blue',
+        AppThemeVariant.orange => 'Orange',
+        AppThemeVariant.dark => 'Dark',
+        AppThemeVariant.multicolor => 'Multicolor',
+      };
+
+  IconData get icon => switch (variant) {
+        AppThemeVariant.bondhon => Icons.favorite_rounded,
+        AppThemeVariant.blue => Icons.water_drop_rounded,
+        AppThemeVariant.orange => Icons.wb_sunny_rounded,
+        AppThemeVariant.dark => Icons.dark_mode_rounded,
+        AppThemeVariant.multicolor => Icons.color_lens_rounded,
+      };
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      contentPadding: EdgeInsets.zero,
+      leading: CircleAvatar(child: Icon(icon)),
+      title: Text(title),
+      trailing: selected ? const Icon(Icons.check_circle_rounded) : null,
+      selected: selected,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      onTap: onTap,
     );
   }
 }
