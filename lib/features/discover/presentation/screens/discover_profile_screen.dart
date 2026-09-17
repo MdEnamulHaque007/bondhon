@@ -4,6 +4,9 @@ import 'package:bondhon/app/theme/app_spacing.dart';
 import 'package:bondhon/core/localization/app_localizations.dart';
 import 'package:bondhon/features/discover/data/discover_repository.dart';
 import 'package:bondhon/features/discover/domain/entities/discover_user.dart';
+import 'package:bondhon/features/safety/data/safety_storage.dart';
+import 'package:bondhon/features/safety/domain/entities/safety_report.dart';
+import 'package:bondhon/features/safety/presentation/widgets/safety_dialogs.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -23,6 +26,27 @@ class DiscoverProfileScreen extends StatefulWidget {
 
 class _DiscoverProfileScreenState extends State<DiscoverProfileScreen> {
   bool _requestSent = false;
+  late final SafetyStorage _safetyStorage;
+
+  @override
+  void initState() {
+    super.initState();
+    _safetyStorage = SafetyStorage();
+  }
+
+  Future<void> _blockUser(DiscoverUser user) async {
+    final confirmed = await confirmBlockUser(
+      context: context,
+      displayName: user.displayName,
+    );
+    if (!confirmed || !mounted) return;
+    await _safetyStorage.blockUser(user.id);
+    if (!mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(AppLocalizations.of(context).userBlocked)),
+    );
+    context.go(AppRoutes.discover);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -134,6 +158,31 @@ class _DiscoverProfileScreenState extends State<DiscoverProfileScreen> {
                         ],
                       ),
                     ),
+                  ),
+                  const SizedBox(height: AppSpacing.md),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: OutlinedButton.icon(
+                          onPressed: () => showReportDialog(
+                            context: context,
+                            targetType: ReportTargetType.user,
+                            targetId: user.id,
+                            storage: _safetyStorage,
+                          ),
+                          icon: const Icon(Icons.flag_outlined),
+                          label: Text(strings.reportUser),
+                        ),
+                      ),
+                      const SizedBox(width: AppSpacing.sm),
+                      Expanded(
+                        child: OutlinedButton.icon(
+                          onPressed: () => _blockUser(user),
+                          icon: const Icon(Icons.block_rounded),
+                          label: Text(strings.blockUser),
+                        ),
+                      ),
+                    ],
                   ),
                   const SizedBox(height: AppSpacing.md),
                   if (user.friendshipStatus == FriendshipStatus.friends)

@@ -4,6 +4,7 @@ import 'package:bondhon/app/theme/app_spacing.dart';
 import 'package:bondhon/core/localization/app_localizations.dart';
 import 'package:bondhon/features/discover/data/discover_repository.dart';
 import 'package:bondhon/features/discover/domain/entities/discover_user.dart';
+import 'package:bondhon/features/safety/data/safety_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -22,7 +23,21 @@ class DiscoverScreen extends StatefulWidget {
 class _DiscoverScreenState extends State<DiscoverScreen> {
   final _searchController = TextEditingController();
   final _pendingRequests = <String>{};
+  final _safetyStorage = SafetyStorage();
+  Set<String> _blockedUserIds = const {};
   DiscoverFilter _filter = DiscoverFilter.all;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadBlockedUsers();
+  }
+
+  Future<void> _loadBlockedUsers() async {
+    final blockedUserIds = await _safetyStorage.readBlockedUserIds();
+    if (!mounted) return;
+    setState(() => _blockedUserIds = blockedUserIds);
+  }
 
   @override
   void dispose() {
@@ -33,10 +48,13 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
   @override
   Widget build(BuildContext context) {
     final strings = AppLocalizations.of(context);
-    final users = widget.repository.search(
-      query: _searchController.text,
-      filter: _filter,
-    );
+    final users = widget.repository
+        .search(
+          query: _searchController.text,
+          filter: _filter,
+        )
+        .where((user) => !_blockedUserIds.contains(user.id))
+        .toList(growable: false);
 
     return SafeArea(
       child: CustomScrollView(

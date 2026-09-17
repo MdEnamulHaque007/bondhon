@@ -4,6 +4,8 @@ import 'package:bondhon/app/theme/app_spacing.dart';
 import 'package:bondhon/core/localization/app_localizations.dart';
 import 'package:bondhon/features/chats/data/conversation_repository.dart';
 import 'package:bondhon/features/chats/domain/entities/conversation.dart';
+import 'package:bondhon/features/safety/domain/entities/safety_report.dart';
+import 'package:bondhon/features/safety/presentation/widgets/safety_dialogs.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -92,6 +94,13 @@ class _DirectChatScreenState extends State<DirectChatScreen> {
                     separatorBuilder: (_, __) => const SizedBox(height: AppSpacing.sm),
                     itemBuilder: (context, index) => _DirectMessageBubble(
                       message: _messages[index],
+                      onReport: () {
+                        showReportDialog(
+                          context: context,
+                          targetType: ReportTargetType.message,
+                          targetId: _messages[index].id,
+                        );
+                      },
                     ),
                   ),
           ),
@@ -161,9 +170,10 @@ class _ChatHeader extends StatelessWidget {
 }
 
 class _DirectMessageBubble extends StatelessWidget {
-  const _DirectMessageBubble({required this.message});
+  const _DirectMessageBubble({required this.message, required this.onReport});
 
   final DirectMessage message;
+  final VoidCallback onReport;
 
   @override
   Widget build(BuildContext context) {
@@ -196,6 +206,16 @@ class _DirectMessageBubble extends StatelessWidget {
                         message.isRead ? Icons.done_all_rounded : Icons.done_rounded,
                         size: 16,
                         semanticLabel: message.isRead ? strings.read : strings.sent,
+                      ),
+                    ] else ...[
+                      const SizedBox(width: AppSpacing.xs),
+                      InkWell(
+                        onTap: onReport,
+                        child: Icon(
+                          Icons.flag_outlined,
+                          size: 17,
+                          semanticLabel: strings.reportMessage,
+                        ),
                       ),
                     ],
                   ],

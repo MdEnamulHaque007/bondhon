@@ -97,6 +97,13 @@ is active in the current build.
 - Local accept, reject, and cancel-request interactions with status feedback
 - Repository-driven relationship state ready for backend synchronization
 
+## Safety and moderation
+
+- Report users or individual private messages with structured report reasons
+- Confirmation step before report submission or user blocking
+- Local safety storage for moderation reports and blocked-user IDs
+- Blocked-users management screen with unblock support
+
 ## Foundation architecture
 
 ```text

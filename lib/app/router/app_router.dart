@@ -12,6 +12,7 @@ import 'package:bondhon/features/home/presentation/screens/home_screen.dart';
 import 'package:bondhon/features/profile/presentation/screens/profile_screen.dart';
 import 'package:bondhon/features/rooms/presentation/screens/room_details_screen.dart';
 import 'package:bondhon/features/rooms/presentation/screens/rooms_screen.dart';
+import 'package:bondhon/features/safety/presentation/screens/blocked_users_screen.dart';
 import 'package:bondhon/features/welcome/presentation/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -27,6 +28,7 @@ abstract final class AppRoutes {
   static const discoverUser = '/discover/:userId';
   static const friends = '/discover/friends';
   static const profile = '/profile';
+  static const blockedUsers = '/profile/blocked-users';
   static const login = '/login';
   static const register = '/register';
   static const forgotPassword = '/forgot-password';
@@ -106,6 +108,13 @@ final GoRouter appRouter = GoRouter(
           path: AppRoutes.profile,
           name: 'profile',
           builder: (context, state) => const ProfileScreen(),
+          routes: [
+            GoRoute(
+              path: 'blocked-users',
+              name: 'blocked-users',
+              builder: (context, state) => const BlockedUsersScreen(),
+            ),
+          ],
         ),
       ],
     ),

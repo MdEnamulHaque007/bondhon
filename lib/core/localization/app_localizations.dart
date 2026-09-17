@@ -150,6 +150,28 @@ class AppLocalizations {
   String get friendRequestAccepted => _text('friendRequestAccepted');
   String get friendRequestRejected => _text('friendRequestRejected');
   String get friendRequestCancelled => _text('friendRequestCancelled');
+  String get reportUser => _text('reportUser');
+  String get reportMessage => _text('reportMessage');
+  String get selectReportReason => _text('selectReportReason');
+  String get harassment => _text('harassment');
+  String get spam => _text('spam');
+  String get hateSpeech => _text('hateSpeech');
+  String get inappropriateContent => _text('inappropriateContent');
+  String get other => _text('other');
+  String get submitReport => _text('submitReport');
+  String get reportConfirmation => _text('reportConfirmation');
+  String get submit => _text('submit');
+  String get reportSubmitted => _text('reportSubmitted');
+  String get blockUser => _text('blockUser');
+  String get block => _text('block');
+  String get userBlocked => _text('userBlocked');
+  String get blockedUsers => _text('blockedUsers');
+  String get blockedUsersInfo => _text('blockedUsersInfo');
+  String get noBlockedUsers => _text('noBlockedUsers');
+  String get unblock => _text('unblock');
+  String get userUnblocked => _text('userUnblocked');
+  String blockUserConfirmation(String name) =>
+      _text('blockUserConfirmation').replaceAll('{name}', name);
   String mutualFriendCount(int count) => '$count ${_text('mutualFriends')}';
   String memberCount(int count) => '$count ${_text('members')}';
   String welcomeUser(String name) => '${_text('welcomePrefix')}, $name';
@@ -293,6 +315,29 @@ class AppLocalizations {
       'friendRequestAccepted': 'Friend request accepted.',
       'friendRequestRejected': 'Friend request rejected.',
       'friendRequestCancelled': 'Friend request cancelled.',
+      'reportUser': 'Report user',
+      'reportMessage': 'Report message',
+      'selectReportReason': 'Why are you reporting this?',
+      'harassment': 'Harassment or bullying',
+      'spam': 'Spam or misleading content',
+      'hateSpeech': 'Hate speech',
+      'inappropriateContent': 'Inappropriate content',
+      'other': 'Other',
+      'submitReport': 'Submit report?',
+      'reportConfirmation':
+          'The report will be saved for moderation review. The reported person will not be notified.',
+      'submit': 'Submit',
+      'reportSubmitted': 'Report submitted for review.',
+      'blockUser': 'Block user',
+      'block': 'Block',
+      'blockUserConfirmation':
+          'Block {name}? They will be hidden from your blocked interactions.',
+      'userBlocked': 'User blocked.',
+      'blockedUsers': 'Blocked users',
+      'blockedUsersInfo': 'Review and unblock people you have blocked.',
+      'noBlockedUsers': 'You have not blocked anyone.',
+      'unblock': 'Unblock',
+      'userUnblocked': 'User unblocked.',
     },
     'bn': {
       'language': 'ভাষা',
@@ -429,6 +474,29 @@ class AppLocalizations {
       'friendRequestAccepted': 'বন্ধুত্বের অনুরোধ গ্রহণ করা হয়েছে।',
       'friendRequestRejected': 'বন্ধুত্বের অনুরোধ প্রত্যাখ্যান করা হয়েছে।',
       'friendRequestCancelled': 'বন্ধুত্বের অনুরোধ বাতিল করা হয়েছে।',
+      'reportUser': 'ব্যবহারকারীকে রিপোর্ট করুন',
+      'reportMessage': 'মেসেজ রিপোর্ট করুন',
+      'selectReportReason': 'কেন রিপোর্ট করছেন?',
+      'harassment': 'হয়রানি বা বুলিং',
+      'spam': 'স্প্যাম বা বিভ্রান্তিকর কনটেন্ট',
+      'hateSpeech': 'ঘৃণামূলক বক্তব্য',
+      'inappropriateContent': 'অনুপযুক্ত কনটেন্ট',
+      'other': 'অন্যান্য',
+      'submitReport': 'রিপোর্ট জমা দেবেন?',
+      'reportConfirmation':
+          'রিপোর্টটি moderation review-এর জন্য সংরক্ষিত হবে। রিপোর্ট করা ব্যক্তিকে জানানো হবে না।',
+      'submit': 'জমা দিন',
+      'reportSubmitted': 'রিপোর্ট পর্যালোচনার জন্য জমা হয়েছে।',
+      'blockUser': 'ব্যবহারকারীকে ব্লক করুন',
+      'block': 'ব্লক করুন',
+      'blockUserConfirmation':
+          'আপনি কি {name}-কে ব্লক করতে চান? আপনার blocked interaction থেকে তাকে লুকানো হবে।',
+      'userBlocked': 'ব্যবহারকারীকে ব্লক করা হয়েছে।',
+      'blockedUsers': 'ব্লক করা ব্যবহারকারী',
+      'blockedUsersInfo': 'ব্লক করা ব্যক্তিদের দেখুন এবং unblock করুন।',
+      'noBlockedUsers': 'আপনি কাউকে ব্লক করেননি।',
+      'unblock': 'আনব্লক করুন',
+      'userUnblocked': 'ব্যবহারকারীকে আনব্লক করা হয়েছে।',
     },
   };
 }

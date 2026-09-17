@@ -221,6 +221,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                           const Divider(height: 1),
                           ListTile(
+                            leading: const Icon(Icons.block_rounded),
+                            title: Text(strings.blockedUsers),
+                            subtitle: Text(strings.blockedUsersInfo),
+                            onTap: () => context.go(AppRoutes.blockedUsers),
+                          ),
+                          const Divider(height: 1),
+                          ListTile(
                             leading: const Icon(Icons.logout_rounded),
                             title: Text(strings.exitGuestMode),
                             subtitle: Text(strings.exitGuestModeInfo),
