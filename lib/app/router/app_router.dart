@@ -3,6 +3,8 @@ import 'package:bondhon/app/shell/app_shell.dart';
 import 'package:bondhon/features/auth/presentation/screens/forgot_password_screen.dart';
 import 'package:bondhon/features/auth/presentation/screens/login_screen.dart';
 import 'package:bondhon/features/auth/presentation/screens/register_screen.dart';
+import 'package:bondhon/features/chats/presentation/screens/chats_screen.dart';
+import 'package:bondhon/features/chats/presentation/screens/direct_chat_screen.dart';
 import 'package:bondhon/features/home/presentation/screens/home_screen.dart';
 import 'package:bondhon/features/navigation/presentation/screens/feature_placeholder_screen.dart';
 import 'package:bondhon/features/profile/presentation/screens/profile_screen.dart';
@@ -16,6 +18,7 @@ abstract final class AppRoutes {
   static const welcome = '/';
   static const home = '/home';
   static const chats = '/chats';
+  static const chat = '/chats/:conversationId';
   static const rooms = '/rooms';
   static const room = '/rooms/:roomId';
   static const discover = '/discover';
@@ -25,6 +28,7 @@ abstract final class AppRoutes {
   static const forgotPassword = '/forgot-password';
 
   static String roomDetails(String roomId) => '/rooms/$roomId';
+  static String chatDetails(String conversationId) => '/chats/$conversationId';
 }
 
 final GoRouter appRouter = GoRouter(
@@ -49,9 +53,16 @@ final GoRouter appRouter = GoRouter(
         GoRoute(
           path: AppRoutes.chats,
           name: 'chats',
-          builder: (context, state) => const FeaturePlaceholderScreen(
-            feature: AppFeature.chats,
-          ),
+          builder: (context, state) => const ChatsScreen(),
+          routes: [
+            GoRoute(
+              path: ':conversationId',
+              name: 'chat-details',
+              builder: (context, state) => DirectChatScreen(
+                conversationId: state.pathParameters['conversationId']!,
+              ),
+            ),
+          ],
         ),
         GoRoute(
           path: AppRoutes.rooms,

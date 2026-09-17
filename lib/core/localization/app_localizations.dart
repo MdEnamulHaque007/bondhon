@@ -108,6 +108,19 @@ class AppLocalizations {
   String get typeMessage => _text('typeMessage');
   String get send => _text('send');
   String get joinToSendMessages => _text('joinToSendMessages');
+  String get privateChats => _text('privateChats');
+  String get privateChatsDescription => _text('privateChatsDescription');
+  String get searchConversations => _text('searchConversations');
+  String get noConversationsFound => _text('noConversationsFound');
+  String get online => _text('online');
+  String get offline => _text('offline');
+  String get conversationNotFound => _text('conversationNotFound');
+  String get backToChats => _text('backToChats');
+  String get startConversation => _text('startConversation');
+  String get conversationInfo => _text('conversationInfo');
+  String get profileComingSoon => _text('profileComingSoon');
+  String get read => _text('read');
+  String get sent => _text('sent');
   String memberCount(int count) => '$count ${_text('members')}';
   String welcomeUser(String name) => '${_text('welcomePrefix')}, $name';
 
@@ -205,6 +218,20 @@ class AppLocalizations {
       'typeMessage': 'Type a message',
       'send': 'Send',
       'joinToSendMessages': 'Join this room as a guest to send messages.',
+      'privateChats': 'Private Chats',
+      'privateChatsDescription':
+          'Continue one-to-one conversations and find people by name or username.',
+      'searchConversations': 'Search conversations',
+      'noConversationsFound': 'No conversations match your search.',
+      'online': 'Online',
+      'offline': 'Offline',
+      'conversationNotFound': 'Conversation not found.',
+      'backToChats': 'Back to chats',
+      'startConversation': 'Send a message to start this conversation.',
+      'conversationInfo': 'Conversation information',
+      'profileComingSoon': 'User profile details will be connected in a future step.',
+      'read': 'Read',
+      'sent': 'Sent',
     },
     'bn': {
       'language': 'ভাষা',
@@ -296,6 +323,20 @@ class AppLocalizations {
       'typeMessage': 'মেসেজ লিখুন',
       'send': 'পাঠান',
       'joinToSendMessages': 'মেসেজ পাঠাতে অতিথি হিসেবে এই রুমে যোগ দিন।',
+      'privateChats': 'ব্যক্তিগত চ্যাট',
+      'privateChatsDescription':
+          'একান্ত কথোপকথন চালিয়ে যান এবং নাম বা ইউজারনেম দিয়ে মানুষ খুঁজুন।',
+      'searchConversations': 'কথোপকথন খুঁজুন',
+      'noConversationsFound': 'আপনার অনুসন্ধানের সঙ্গে কোনো কথোপকথন পাওয়া যায়নি।',
+      'online': 'অনলাইন',
+      'offline': 'অফলাইন',
+      'conversationNotFound': 'কথোপকথনটি পাওয়া যায়নি।',
+      'backToChats': 'চ্যাট তালিকায় ফিরুন',
+      'startConversation': 'কথোপকথন শুরু করতে একটি মেসেজ পাঠান।',
+      'conversationInfo': 'কথোপকথনের তথ্য',
+      'profileComingSoon': 'পরবর্তী ধাপে ব্যবহারকারীর প্রোফাইল যুক্ত করা হবে।',
+      'read': 'পড়া হয়েছে',
+      'sent': 'পাঠানো হয়েছে',
     },
   };
 }

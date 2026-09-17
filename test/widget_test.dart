@@ -1,6 +1,7 @@
 import 'package:bondhon/app/app.dart';
 import 'package:bondhon/core/localization/app_localizations.dart';
 import 'package:bondhon/core/localization/language_controller.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -79,5 +80,31 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Joined'), findsOneWidget);
     expect(find.byType(TextField), findsOneWidget);
+  });
+
+  testWidgets('guest can open a private chat and send a local message', (tester) async {
+    SharedPreferences.setMockInitialValues({});
+    final languageController = LanguageController();
+    await tester.pumpWidget(
+      ProviderScope(
+        child: BondhonApp(languageController: languageController),
+      ),
+    );
+
+    await tester.tap(find.text('Enter now'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Chats').first);
+    await tester.pumpAndSettle();
+
+    expect(find.text('Private Chats'), findsOneWidget);
+    expect(find.text('Nadia Rahman'), findsOneWidget);
+
+    await tester.tap(find.text('Nadia Rahman'));
+    await tester.pumpAndSettle();
+    await tester.enterText(find.byType(TextField), 'Hello Nadia');
+    await tester.tap(find.byIcon(Icons.send_rounded));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Hello Nadia'), findsOneWidget);
   });
 }

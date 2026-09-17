@@ -2,7 +2,7 @@ import 'package:bondhon/app/theme/app_spacing.dart';
 import 'package:bondhon/core/localization/app_localizations.dart';
 import 'package:flutter/material.dart';
 
-enum AppFeature { chats, discover }
+enum AppFeature { discover }
 
 class FeaturePlaceholderScreen extends StatelessWidget {
   const FeaturePlaceholderScreen({required this.feature, super.key});
@@ -13,11 +13,6 @@ class FeaturePlaceholderScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final strings = AppLocalizations.of(context);
     final details = switch (feature) {
-      AppFeature.chats => (
-          icon: Icons.chat_bubble_outline_rounded,
-          title: strings.chats,
-          description: strings.chatsDescription,
-        ),
       AppFeature.discover => (
           icon: Icons.explore_outlined,
           title: strings.discover,

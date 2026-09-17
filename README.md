@@ -76,6 +76,13 @@ is active in the current build.
 - Room detail route with preview messages and a Guest Mode join flow
 - Local message composer structure ready for a future real-time backend
 
+## Private chats
+
+- Searchable one-to-one conversation list with online status and unread badges
+- Direct-chat routes with sample conversation history
+- Guest message composer with local sent/read presentation
+- Invalid-conversation handling and bilingual interface text
+
 ## Foundation architecture
 
 ```text
