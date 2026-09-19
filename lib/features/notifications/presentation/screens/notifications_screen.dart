@@ -1,4 +1,3 @@
-import 'package:bondhon/app/theme/app_colors.dart';
 import 'package:bondhon/app/theme/app_spacing.dart';
 import 'package:bondhon/core/localization/app_localizations.dart';
 import 'package:bondhon/features/notifications/domain/entities/app_notification.dart';
@@ -176,7 +175,7 @@ class _NotificationTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final strings = AppLocalizations.of(context);
     return Card(
-      color: notification.isRead ? null : AppColors.bondhonGreenSoft,
+      color: notification.isRead ? null : Theme.of(context).colorScheme.primaryContainer,
       child: ListTile(
         onTap: onOpen,
         leading: CircleAvatar(
