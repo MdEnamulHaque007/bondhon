@@ -184,7 +184,7 @@ class _DirectMessageBubble extends StatelessWidget {
         child: DecoratedBox(
           decoration: BoxDecoration(
             color: message.isCurrentUser
-                ? AppColors.bondhonGreenSoft
+                ? Theme.of(context).colorScheme.primaryContainer
                 : Theme.of(context).colorScheme.surfaceContainerHighest,
             borderRadius: BorderRadius.circular(AppRadius.lg),
           ),
