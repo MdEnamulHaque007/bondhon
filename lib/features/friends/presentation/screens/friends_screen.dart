@@ -1,5 +1,4 @@
 import 'package:bondhon/app/router/app_router.dart';
-import 'package:bondhon/app/theme/app_colors.dart';
 import 'package:bondhon/app/theme/app_spacing.dart';
 import 'package:bondhon/core/localization/app_localizations.dart';
 import 'package:bondhon/features/friends/data/friends_repository.dart';
@@ -224,7 +223,7 @@ class _FriendConnectionTile extends StatelessWidget {
                     Icons.circle,
                     size: 16,
                     color: connection.isOnline
-                        ? AppColors.bondhonGreen
+                        ? Theme.of(context).colorScheme.primary
                         : Theme.of(context).colorScheme.outline,
                   ),
                 ),
