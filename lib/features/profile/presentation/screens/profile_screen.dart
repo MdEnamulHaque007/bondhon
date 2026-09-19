@@ -1,5 +1,4 @@
 import 'package:bondhon/app/router/app_router.dart';
-import 'package:bondhon/app/theme/app_colors.dart';
 import 'package:bondhon/app/theme/app_spacing.dart';
 import 'package:bondhon/app/theme/theme_controller.dart';
 import 'package:bondhon/core/localization/app_localizations.dart';
@@ -360,15 +359,16 @@ class _ProfileHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: AppColors.bondhonGreenSoft,
+      color: Theme.of(context).colorScheme.primaryContainer,
       child: Padding(
         padding: const EdgeInsets.all(AppSpacing.lg),
         child: Row(
           children: [
-            const CircleAvatar(
+            CircleAvatar(
               radius: 38,
-              backgroundColor: AppColors.bondhonGreen,
-              child: Icon(Icons.person_rounded, size: 42, color: Colors.white),
+              backgroundColor: Theme.of(context).colorScheme.primary,
+              foregroundColor: Theme.of(context).colorScheme.onPrimary,
+              child: const Icon(Icons.person_rounded, size: 42),
             ),
             const SizedBox(width: AppSpacing.md),
             Expanded(
