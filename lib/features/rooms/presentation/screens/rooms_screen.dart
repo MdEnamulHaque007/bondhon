@@ -1,5 +1,4 @@
 import 'package:bondhon/app/router/app_router.dart';
-import 'package:bondhon/app/theme/app_colors.dart';
 import 'package:bondhon/app/theme/app_spacing.dart';
 import 'package:bondhon/core/localization/app_localizations.dart';
 import 'package:bondhon/features/rooms/data/room_repository.dart';
@@ -170,15 +169,15 @@ class _RoomCard extends StatelessWidget {
               Row(
                 children: [
                   CircleAvatar(
-                    backgroundColor: AppColors.bondhonGreenSoft,
-                    child: Icon(room.icon, color: AppColors.bondhonGreenDark),
+                    backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+                    child: Icon(room.icon, color: Theme.of(context).colorScheme.onPrimaryContainer),
                   ),
                   const Spacer(),
                   if (room.isLive)
                     Chip(
                       avatar: const Icon(
                         Icons.circle,
-                        color: AppColors.bondhonRed,
+                        color: Theme.of(context).colorScheme.error,
                         size: 12,
                       ),
                       label: Text(strings.live),
