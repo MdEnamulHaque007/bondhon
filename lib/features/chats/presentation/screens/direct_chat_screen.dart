@@ -1,5 +1,4 @@
 import 'package:bondhon/app/router/app_router.dart';
-import 'package:bondhon/app/theme/app_colors.dart';
 import 'package:bondhon/app/theme/app_spacing.dart';
 import 'package:bondhon/core/localization/app_localizations.dart';
 import 'package:bondhon/features/chats/data/conversation_repository.dart';
@@ -148,7 +147,7 @@ class _ChatHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     final strings = AppLocalizations.of(context);
     return Material(
-      color: AppColors.bondhonGreenSoft,
+      color: Theme.of(context).colorScheme.primaryContainer,
       child: ListTile(
         leading: IconButton(
           tooltip: strings.backToChats,
