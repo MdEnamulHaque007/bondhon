@@ -196,7 +196,7 @@ class _MessageBubble extends StatelessWidget {
       child: ConstrainedBox(
         constraints: const BoxConstraints(maxWidth: 520),
         child: Card(
-          color: message.isCurrentUser ? AppColors.bondhonGreenSoft : null,
+          color: message.isCurrentUser ? Theme.of(context).colorScheme.primaryContainer : null,
           child: Padding(
             padding: const EdgeInsets.all(AppSpacing.md),
             child: Column(
