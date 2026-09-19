@@ -1,5 +1,4 @@
 import 'package:bondhon/app/router/app_router.dart';
-import 'package:bondhon/app/theme/app_colors.dart';
 import 'package:bondhon/app/theme/app_spacing.dart';
 import 'package:bondhon/core/localization/app_localizations.dart';
 import 'package:bondhon/features/rooms/data/room_repository.dart';
@@ -146,7 +145,7 @@ class _RoomHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     final strings = AppLocalizations.of(context);
     return Material(
-      color: AppColors.bondhonGreenSoft,
+      color: Theme.of(context).colorScheme.primaryContainer,
       child: Padding(
         padding: const EdgeInsets.all(AppSpacing.md),
         child: Row(
