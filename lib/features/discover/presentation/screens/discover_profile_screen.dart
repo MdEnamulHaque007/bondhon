@@ -1,5 +1,4 @@
 import 'package:bondhon/app/router/app_router.dart';
-import 'package:bondhon/app/theme/app_colors.dart';
 import 'package:bondhon/app/theme/app_spacing.dart';
 import 'package:bondhon/core/localization/app_localizations.dart';
 import 'package:bondhon/features/discover/data/discover_repository.dart';
@@ -89,7 +88,7 @@ class _DiscoverProfileScreenState extends State<DiscoverProfileScreen> {
                     ),
                   ),
                   Card(
-                    color: AppColors.bondhonGreenSoft,
+                    color: Theme.of(context).colorScheme.primaryContainer,
                     child: Padding(
                       padding: const EdgeInsets.all(AppSpacing.xl),
                       child: Column(
@@ -115,7 +114,7 @@ class _DiscoverProfileScreenState extends State<DiscoverProfileScreen> {
                                   Icons.circle,
                                   size: 20,
                                   color: user.isOnline
-                                      ? AppColors.bondhonGreen
+                                      ? Theme.of(context).colorScheme.primary
                                       : Theme.of(context).colorScheme.outline,
                                 ),
                               ),
