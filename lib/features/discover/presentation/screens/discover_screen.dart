@@ -1,5 +1,4 @@
 import 'package:bondhon/app/router/app_router.dart';
-import 'package:bondhon/app/theme/app_colors.dart';
 import 'package:bondhon/app/theme/app_spacing.dart';
 import 'package:bondhon/core/localization/app_localizations.dart';
 import 'package:bondhon/features/discover/data/discover_repository.dart';
@@ -224,7 +223,7 @@ class _DiscoverUserCard extends StatelessWidget {
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: user.isOnline
-                            ? AppColors.bondhonGreen
+                            ? Theme.of(context).colorScheme.primary
                             : Theme.of(context).colorScheme.outline,
                         border: Border.all(
                           color: Theme.of(context).colorScheme.surface,
