@@ -1,5 +1,4 @@
 import 'package:bondhon/app/router/app_router.dart';
-import 'package:bondhon/app/theme/app_colors.dart';
 import 'package:bondhon/app/theme/app_spacing.dart';
 import 'package:bondhon/core/constants/app_constants.dart';
 import 'package:bondhon/core/localization/app_localizations.dart';
@@ -156,7 +155,7 @@ class _WelcomeActionCard extends StatelessWidget {
                   vertical: AppSpacing.xs,
                 ),
                 decoration: BoxDecoration(
-                  color: AppColors.bondhonGreenSoft,
+                  color: colors.primaryContainer,
                   borderRadius: BorderRadius.circular(AppRadius.pill),
                 ),
                 child: Row(
@@ -165,14 +164,14 @@ class _WelcomeActionCard extends StatelessWidget {
                     const Icon(
                       Icons.verified_user_outlined,
                       size: 18,
-                      color: AppColors.bondhonGreenDark,
+                      color: colors.onPrimaryContainer,
                     ),
                     const SizedBox(width: AppSpacing.xs),
                     Flexible(
                       child: Text(
                         strings.safetyBadge,
                         style: const TextStyle(
-                          color: AppColors.bondhonGreenDark,
+                          color: colors.onPrimaryContainer,
                         ),
                       ),
                     ),
