@@ -1,5 +1,4 @@
 import 'package:bondhon/app/router/app_router.dart';
-import 'package:bondhon/app/theme/app_colors.dart';
 import 'package:bondhon/app/theme/app_spacing.dart';
 import 'package:bondhon/core/localization/app_localizations.dart';
 import 'package:bondhon/features/chats/data/conversation_repository.dart';
@@ -147,7 +146,7 @@ class _ConversationTile extends StatelessWidget {
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: conversation.isOnline
-                      ? AppColors.bondhonGreen
+                      ? Theme.of(context).colorScheme.primary
                       : Theme.of(context).colorScheme.outline,
                   border: Border.all(color: Theme.of(context).colorScheme.surface, width: 2),
                 ),
@@ -175,7 +174,7 @@ class _ConversationTile extends StatelessWidget {
             if (conversation.unreadCount > 0)
               Badge(
                 label: Text('${conversation.unreadCount}'),
-                backgroundColor: AppColors.bondhonRed,
+                backgroundColor: Theme.of(context).colorScheme.error,
               )
             else
               Text(
