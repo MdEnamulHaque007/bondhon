@@ -43,7 +43,7 @@ class BrandMark extends StatelessWidget {
               child: Container(
                 width: size * 0.16,
                 height: size * 0.16,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   color: colors.error,
                   shape: BoxShape.circle,
                 ),
