@@ -81,8 +81,6 @@ class AppLocalizations {
   String get admin => _text('admin');
   String get member => _text('member');
   String get memberPreview => _text('memberPreview');
-  String get joinAsGuest => _text('joinAsGuest');
-  String get joined => _text('joined');
   String get copyInviteLink => _text('copyInviteLink');
   String get inviteLinkCopied => _text('inviteLinkCopied');
   String get leaveGroup => _text('leaveGroup');
@@ -273,8 +271,6 @@ class AppLocalizations {
       'admin': 'Admin',
       'member': 'Member',
       'memberPreview': 'Member preview',
-      'joinAsGuest': 'Join as guest',
-      'joined': 'Joined',
       'copyInviteLink': 'Copy invite link',
       'inviteLinkCopied': 'Dummy invite link copied.',
       'leaveGroup': 'Leave group',
@@ -464,8 +460,6 @@ class AppLocalizations {
       'admin': 'অ্যাডমিন',
       'member': 'সদস্য',
       'memberPreview': 'সদস্যদের তালিকা',
-      'joinAsGuest': 'অতিথি হিসেবে যোগ দিন',
-      'joined': 'যোগ দিয়েছেন',
       'copyInviteLink': 'ইনভাইট লিংক কপি করুন',
       'inviteLinkCopied': 'ডামি ইনভাইট লিংক কপি হয়েছে।',
       'leaveGroup': 'গ্রুপ ছাড়ুন',
