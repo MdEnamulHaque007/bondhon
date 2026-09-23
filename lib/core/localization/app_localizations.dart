@@ -206,6 +206,36 @@ class AppLocalizations {
   String get block => _text('block');
   String get userBlocked => _text('userBlocked');
   String get blockedUsers => _text('blockedUsers');
+  String get adminDemo => _text('adminDemo');
+  String get adminDemoInfo => _text('adminDemoInfo');
+  String get adminDashboard => _text('adminDashboard');
+  String get adminDemoBanner => _text('adminDemoBanner');
+  String get adminLastUpdated => _text('adminLastUpdated');
+  String get totalUsers => _text('totalUsers');
+  String get dailyActiveUsers => _text('dailyActiveUsers');
+  String get messagesSent => _text('messagesSent');
+  String get activeRooms => _text('activeRooms');
+  String get openReports => _text('openReports');
+  String get adminUsers => _text('adminUsers');
+  String get adminReports => _text('adminReports');
+  String get adminContent => _text('adminContent');
+  String get adminSearchUsers => _text('adminSearchUsers');
+  String get adminWarn => _text('adminWarn');
+  String get adminSuspend => _text('adminSuspend');
+  String get adminBan => _text('adminBan');
+  String get adminUnban => _text('adminUnban');
+  String get adminActive => _text('adminActive');
+  String get adminWarned => _text('adminWarned');
+  String get adminSuspended => _text('adminSuspended');
+  String get adminBanned => _text('adminBanned');
+  String get adminMarkReviewed => _text('adminMarkReviewed');
+  String get adminDismiss => _text('adminDismiss');
+  String get adminOpen => _text('adminOpen');
+  String get adminReviewed => _text('adminReviewed');
+  String get adminDismissed => _text('adminDismissed');
+  String get adminRemove => _text('adminRemove');
+  String get adminKeep => _text('adminKeep');
+
   String get privacySettings => _text('privacySettings');
   String get lastSeenVisibility => _text('lastSeenVisibility');
   String get lastSeenVisibilityInfo => _text('lastSeenVisibilityInfo');
@@ -444,6 +474,36 @@ class AppLocalizations {
           'Block {name}? They will be hidden from your blocked interactions.',
       'userBlocked': 'User blocked.',
       'blockedUsers': 'Blocked users',
+      'adminDemo': 'Admin demo',
+      'adminDemoInfo': 'Local mock access only — no real admin authentication.',
+      'adminDashboard': 'Admin Dashboard',
+      'adminDemoBanner': 'Admin demo — mock data only. Not connected to production.',
+      'adminLastUpdated': 'Last updated: Demo data',
+      'totalUsers': 'Total users',
+      'dailyActiveUsers': 'Daily active users',
+      'messagesSent': 'Messages sent',
+      'activeRooms': 'Active rooms',
+      'openReports': 'Open reports',
+      'adminUsers': 'Users management',
+      'adminReports': 'Reports queue',
+      'adminContent': 'Content moderation',
+      'adminSearchUsers': 'Search by name or username',
+      'adminWarn': 'Warn',
+      'adminSuspend': 'Suspend',
+      'adminBan': 'Ban',
+      'adminUnban': 'Unban',
+      'adminActive': 'Active',
+      'adminWarned': 'Warned',
+      'adminSuspended': 'Suspended',
+      'adminBanned': 'Banned',
+      'adminMarkReviewed': 'Mark reviewed',
+      'adminDismiss': 'Dismiss',
+      'adminOpen': 'Open',
+      'adminReviewed': 'Reviewed',
+      'adminDismissed': 'Dismissed',
+      'adminRemove': 'Remove',
+      'adminKeep': 'Keep',
+
       'privacySettings': 'Privacy & Safety',
       'lastSeenVisibility': 'Last seen visibility',
       'lastSeenVisibilityInfo': 'Let people see when you were last active.',
@@ -673,6 +733,36 @@ class AppLocalizations {
           'আপনি কি {name}-কে ব্লক করতে চান? আপনার blocked interaction থেকে তাকে লুকানো হবে।',
       'userBlocked': 'ব্যবহারকারীকে ব্লক করা হয়েছে।',
       'blockedUsers': 'ব্লক করা ব্যবহারকারী',
+      'adminDemo': 'অ্যাডমিন ডেমো',
+      'adminDemoInfo': 'শুধু লোকাল মক অ্যাক্সেস — কোনো বাস্তব অ্যাডমিন অথেনটিকেশন নেই।',
+      'adminDashboard': 'অ্যাডমিন ড্যাশবোর্ড',
+      'adminDemoBanner': 'অ্যাডমিন ডেমো — শুধু মক ডেটা। প্রোডাকশনের সঙ্গে সংযুক্ত নয়।',
+      'adminLastUpdated': 'সর্বশেষ আপডেট: ডেমো ডেটা',
+      'totalUsers': 'মোট ব্যবহারকারী',
+      'dailyActiveUsers': 'দৈনিক সক্রিয় ব্যবহারকারী',
+      'messagesSent': 'পাঠানো মেসেজ',
+      'activeRooms': 'সক্রিয় রুম',
+      'openReports': 'খোলা রিপোর্ট',
+      'adminUsers': 'ইউজার ম্যানেজমেন্ট',
+      'adminReports': 'রিপোর্ট কিউ',
+      'adminContent': 'কনটেন্ট মডারেশন',
+      'adminSearchUsers': 'নাম বা ইউজারনেম দিয়ে খুঁজুন',
+      'adminWarn': 'সতর্ক করুন',
+      'adminSuspend': 'সাসপেন্ড করুন',
+      'adminBan': 'ব্যান করুন',
+      'adminUnban': 'আনব্যান করুন',
+      'adminActive': 'সক্রিয়',
+      'adminWarned': 'সতর্ক',
+      'adminSuspended': 'সাসপেন্ডেড',
+      'adminBanned': 'ব্যানড',
+      'adminMarkReviewed': 'রিভিউড হিসেবে চিহ্নিত করুন',
+      'adminDismiss': 'বাতিল করুন',
+      'adminOpen': 'খোলা',
+      'adminReviewed': 'রিভিউড',
+      'adminDismissed': 'বাতিল',
+      'adminRemove': 'রিমুভ',
+      'adminKeep': 'রাখুন',
+
       'privacySettings': 'প্রাইভেসি ও সেফটি',
       'lastSeenVisibility': 'শেষবার সক্রিয় থাকার তথ্য',
       'lastSeenVisibilityInfo': 'অন্যরা আপনার শেষবার সক্রিয় থাকার সময় দেখতে পারবে।',
