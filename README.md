@@ -139,6 +139,7 @@ is active in the current build.
 - Dashboard KPIs, users, reports, and flagged content are local in-memory mock data only.
 - User actions (Warn, Suspend, Ban, Unban), report review/dismiss, and content Remove/Keep only change local demo state.
 - A clear banner marks the panel as demo-only and not connected to production.
+- Users management now includes a local user-details route with moderation action confirmation, reasons, and in-memory moderation history.
 - English and Bangla localization follows the existing AppLocalizations pattern.
 - **Before production:** real admin roles/permissions, Firestore Security Rules, and server-side validation must be implemented. Client-side UI actions alone are not a security boundary.
 
