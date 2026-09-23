@@ -8,16 +8,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class FeedScreen extends ConsumerWidget {
-  const FeedScreen({this.showAppBar = true, super.key});
+  const FeedScreen({this.showAppBar = true, this.repository = feedRepository, super.key});
 
   final bool showAppBar;
+  final FeedRepository repository;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final strings = AppLocalizations.of(context);
     final user = ref.watch(currentUserProvider);
     return AnimatedBuilder(
-      animation: feedRepository,
+      animation: repository,
       builder: (context, _) => Scaffold(
         appBar: showAppBar
             ? AppBar(
@@ -25,7 +26,7 @@ class FeedScreen extends ConsumerWidget {
                 actions: [
                   IconButton(
                     tooltip: strings.refreshFeed,
-                    onPressed: () => feedRepository.notifyListeners(),
+                    onPressed: () => repository.notifyListeners(),
                     icon: const Icon(Icons.refresh_rounded),
                   ),
                 ],
@@ -39,12 +40,12 @@ class FeedScreen extends ConsumerWidget {
               authorId: user.id,
             ),
             const SizedBox(height: AppSpacing.md),
-            for (final post in feedRepository.posts)
+            for (final post in repository.posts)
               Padding(
                 padding: const EdgeInsets.only(bottom: AppSpacing.md),
                 child: _PostCard(
                   post: post,
-                  onLike: () => feedRepository.toggleLike(post.id),
+                  onLike: () => repository.toggleLike(post.id),
                   onOpen: () => Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (_) => FeedPostDetailsScreen(postId: post.id),
@@ -80,7 +81,7 @@ class _CreatePostCardState extends State<_CreatePostCard> {
 
   void _createPost() {
     if (_controller.text.trim().isEmpty) return;
-    feedRepository.createPost(
+    repository.createPost(
       authorName: widget.authorName,
       authorId: widget.authorId,
       content: _controller.text,
