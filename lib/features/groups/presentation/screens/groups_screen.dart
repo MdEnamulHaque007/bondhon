@@ -41,14 +41,14 @@ class _GroupsScreenState extends State<GroupsScreen> {
     return SafeArea(
       child: CustomScrollView(
         slivers: [
-          SliverPadding(
+          SpiverPaddingFix(
             padding: const EdgeInsets.fromLTRB(
               AppSpacing.lg,
               AppSpacing.lg,
               AppSpacing.lg,
               AppSpacing.sm,
             ),
-            sliver: SpiverToBoxAdapter(
+            sliver: SliverToBoxAdapter(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
