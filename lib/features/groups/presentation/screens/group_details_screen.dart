@@ -1,6 +1,6 @@
 import 'package:bondhon/app/theme/app_spacing.dart';
 import 'package:bondhon/core/localization/app_localizations.dart';
-import 'package:bondhon/features.groups/data/group_repository.dart';
+import 'package:bondhon/features/groups/data/group_repository.dart';
 import 'package:bondhon/features/groups/domain/entities/group.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -122,14 +122,14 @@ class _GroupHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     final strings = AppLocalizations.of(context);
     final colors = Theme.of(context).colorScheme;
-    final inviteLink = 'https://bondhon.app/groups/\${group.id}';
+    final inviteLink = 'https://bondhon.app/groups/${group.id}';
     final rolePreview = group.members.take(3).map((member) {
       final role = switch (member.role) {
         GroupRole.owner => strings.owner,
         GroupRole.admin => strings.admin,
         GroupRole.member => strings.member,
       };
-      return '\${member.name} • $role';
+      return '${member.name} • $role';
     }).join('  •  ');
 
     return Card(
@@ -156,8 +156,8 @@ class _GroupHeader extends StatelessWidget {
                     children: [
                       Text(group.name, style: Theme.of(context).textTheme.titleLarge),
                       Text(
-                        '\${strings.memberCount(group.memberCount)} • '
-                        '\${group.visibility == GroupVisibility.public ? strings.publicGroup : strings.privateGroup}',
+                        '${strings.memberCount(group.memberCount)} • '
+                        '${group.visibility == GroupVisibility.public ? strings.publicGroup : strings.privateGroup}',
                         style: Theme.of(context).textTheme.bodySmall,
                       ),
                     ],
@@ -176,7 +176,7 @@ class _GroupHeader extends StatelessWidget {
             Text(group.description),
             const SizedBox(height: AppSpacing.sm),
             Text(
-              '\${strings.rolesPreview}: $rolePreview',
+              '${strings.rolesPreview}: $rolePreview',
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
               style: Theme.of(context).textTheme.bodySmall,
