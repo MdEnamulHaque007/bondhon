@@ -1,12 +1,14 @@
 import 'package:bondhon/app/theme/app_spacing.dart';
 import 'package:bondhon/core/localization/app_localizations.dart';
+import 'package:bondhon/features/auth/presentation/controllers/auth_providers.dart';
 import 'package:bondhon/features/feed/data/feed_repository.dart';
 import 'package:bondhon/features/feed/domain/entities/feed_post.dart';
 import 'package:bondhon/features/safety/domain/entities/safety_report.dart';
 import 'package:bondhon/features/safety/presentation/widgets/safety_dialogs.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class FeedPostDetailsScreen extends StatefulWidget {
+class FeedPostDetailsScreen extends ConsumerStatefulWidget {
   const FeedPostDetailsScreen({required this.postId, super.key});
   final String postId;
 
@@ -14,7 +16,7 @@ class FeedPostDetailsScreen extends StatefulWidget {
   State<FeedPostDetailsScreen> createState() => _FeedPostDetailsScreenState();
 }
 
-class _FeedPostDetailsScreenState extends State<FeedPostDetailsScreen> {
+class _FeedPostDetailsScreenState extends ConsumerState<FeedPostDetailsScreen> {
   final _commentController = TextEditingController();
 
   @override
@@ -115,7 +117,7 @@ class _FeedPostDetailsScreenState extends State<FeedPostDetailsScreen> {
                     onPressed: () {
                       feedRepository.addComment(
                         postId: post.id,
-                        authorName: 'Guest User',
+                        authorName: ref.read(currentUserProvider).displayName,
                         text: _commentController.text,
                       );
                       _commentController.clear();
