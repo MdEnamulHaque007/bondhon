@@ -8,6 +8,7 @@ import 'package:bondhon/features/chats/presentation/screens/direct_chat_screen.d
 import 'package:bondhon/features/discover/presentation/screens/discover_profile_screen.dart';
 import 'package:bondhon/features/discover/presentation/screens/discover_screen.dart';
 import 'package:bondhon/features/friends/presentation/screens/friends_screen.dart';
+import 'package:bondhon/features/feed/presentation/screens/feed_screen.dart';
 import 'package:bondhon/features/groups/presentation/screens/group_details_screen.dart';
 import 'package:bondhon/features/groups/presentation/screens/groups_screen.dart';
 import 'package:bondhon/features/home/presentation/screens/home_screen.dart';
@@ -23,6 +24,7 @@ import 'package:go_router/go_router.dart';
 abstract final class AppRoutes {
   static const welcome = '/';
   static const home = '/home';
+  static const feed = '/feed';
   static const chats = '/chats';
   static const chat = '/chats/:conversationId';
   static const rooms = '/rooms';
@@ -63,6 +65,11 @@ final GoRouter appRouter = GoRouter(
           path: AppRoutes.home,
           name: 'home',
           builder: (context, state) => const HomeScreen(),
+        ),
+        GoRoute(
+          path: AppRoutes.feed,
+          name: 'feed',
+          builder: (context, state) => const FeedScreen(),
         ),
         GoRoute(
           path: AppRoutes.notifications,
