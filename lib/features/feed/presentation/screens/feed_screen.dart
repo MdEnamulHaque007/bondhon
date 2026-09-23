@@ -8,7 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class FeedScreen extends ConsumerWidget {
-  const FeedScreen({super.key});
+  const FeedScreen({this.showAppBar = true, super.key});
+
+  final bool showAppBar;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -17,16 +19,18 @@ class FeedScreen extends ConsumerWidget {
     return AnimatedBuilder(
       animation: feedRepository,
       builder: (context, _) => Scaffold(
-        appBar: AppBar(
-          title: Text(strings.socialFeed),
-          actions: [
-            IconButton(
-              tooltip: strings.refreshFeed,
-              onPressed: () => feedRepository.notifyListeners(),
-              icon: const Icon(Icons.refresh_rounded),
-            ),
-          ],
-        ),
+        appBar: showAppBar
+            ? AppBar(
+                title: Text(strings.socialFeed),
+                actions: [
+                  IconButton(
+                    tooltip: strings.refreshFeed,
+                    onPressed: () => feedRepository.notifyListeners(),
+                    icon: const Icon(Icons.refresh_rounded),
+                  ),
+                ],
+              )
+            : null,
         body: ListView(
           padding: const EdgeInsets.all(AppSpacing.md),
           children: [
