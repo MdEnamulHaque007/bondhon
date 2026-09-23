@@ -132,10 +132,10 @@ class _FeedPostDetailsScreenState extends State<FeedPostDetailsScreen> {
   }
 }
 
-String _relativeTime(DateTime time) {
+String _relativeTime(DateTime time, AppLocalizations strings) {
   final difference = DateTime.now().difference(time);
-  if (difference.inMinutes < 1) return 'Just now';
-  if (difference.inMinutes < 60) return '${difference.inMinutes}m';
-  if (difference.inHours < 24) return '${difference.inHours}h';
-  return '${difference.inDays}d';
+  if (difference.inMinutes < 1) return strings.justNow;
+  if (difference.inMinutes < 60) return strings.minutesAgo(difference.inMinutes);
+  if (difference.inHours < 24) return strings.hoursAgo(difference.inHours);
+  return strings.daysAgo(difference.inDays);
 }
