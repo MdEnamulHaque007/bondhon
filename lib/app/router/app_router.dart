@@ -130,7 +130,7 @@ final GoRouter appRouter = GoRouter(
         GoRoute(
           path: AppRoutes.groups,
           name: 'groups',
-          builder: (context, state) => const GroupsScreen(),
+          builder: (context, state) => GroupsScreen(),
           routes: [
             GoRoute(
               path: ':groupId',
@@ -184,9 +184,21 @@ final GoRouter appRouter = GoRouter(
       name: 'admin',
       builder: (context, state) => const AdminDashboardScreen(),
       routes: [
-        GoRoute(path: 'users', name: 'admin-users', builder: (context, state) => const AdminUsersScreen()),
-        GoRoute(path: 'reports', name: 'admin-reports', builder: (context, state) => const AdminReportsScreen()),
-        GoRoute(path: 'content', name: 'admin-content', builder: (context, state) => const AdminContentScreen()),
+        GoRoute(
+          path: 'users',
+          name: 'admin-users',
+          builder: (context, state) => const AdminUsersScreen(),
+        ),
+        GoRoute(
+          path: 'reports',
+          name: 'admin-reports',
+          builder: (context, state) => const AdminReportsScreen(),
+        ),
+        GoRoute(
+          path: 'content',
+          name: 'admin-content',
+          builder: (context, state) => const AdminContentScreen(),
+        ),
       ],
     ),
     GoRoute(
