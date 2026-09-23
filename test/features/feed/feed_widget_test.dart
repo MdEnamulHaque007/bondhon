@@ -7,10 +7,7 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   testWidgets('creates a post and can like it', (tester) async {
     final repository = FeedRepository(initialPosts: []);
-    final previous = feedRepository;
-    while (feedRepository.posts.isNotEmpty) {
-      break;
-    }
+
     await tester.pumpWidget(
       MaterialApp(
         localizationsDelegates: const [
@@ -18,17 +15,23 @@ void main() {
         ],
         supportedLocales: AppLocalizations.supportedLocales,
         locale: AppLocalizations.englishLocale,
-        home: const FeedScreen(),
+        home: FeedScreen(repository: repository),
       ),
     );
+
     await tester.enterText(find.byKey(const Key('feed-post-input')), 'My first post');
     await tester.tap(find.byKey(const Key('create-feed-post')));
-    await tester.pump();
+    await tester.pumpAndSettle();
+
     expect(find.text('My first post'), findsOneWidget);
-    expect(previous.posts.any((post) => post.content == 'My first post'), isTrue);
+    expect(repository.posts.first.content, 'My first post');
+
     await tester.tap(find.byIcon(Icons.favorite_border_rounded).first);
     await tester.pump();
-    expect(find.text('1'), findsOneWidget);
+
+    expect(repository.posts.first.isLiked, isTrue);
+    expect(repository.posts.first.likeCount, 1);
+
     repository.dispose();
   });
 }
