@@ -13,7 +13,8 @@ class FeedPostDetailsScreen extends ConsumerStatefulWidget {
   final String postId;
 
   @override
-  State<FeedPostDetailsScreen> createState() => _FeedPostDetailsScreenState();
+  ConsumerState<FeedPostDetailsScreen> createState() =>
+      _FeedPostDetailsScreenState();
 }
 
 class _FeedPostDetailsScreenState extends ConsumerState<FeedPostDetailsScreen> {
@@ -62,17 +63,27 @@ class _FeedPostDetailsScreenState extends ConsumerState<FeedPostDetailsScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(post.authorName, style: Theme.of(context).textTheme.titleLarge),
+                      Text(
+                        post.authorName,
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ),
                       const SizedBox(height: 4),
                       Text(_relativeTime(post.createdAt, strings)),
                       const SizedBox(height: AppSpacing.md),
-                      Text(post.content, style: Theme.of(context).textTheme.bodyLarge),
+                      Text(
+                        post.content,
+                        style: Theme.of(context).textTheme.bodyLarge,
+                      ),
                       const SizedBox(height: AppSpacing.sm),
                       Row(
                         children: [
                           IconButton(
                             onPressed: () => feedRepository.toggleLike(post.id),
-                            icon: Icon(post.isLiked ? Icons.favorite_rounded : Icons.favorite_border_rounded),
+                            icon: Icon(
+                              post.isLiked
+                                  ? Icons.favorite_rounded
+                                  : Icons.favorite_border_rounded,
+                            ),
                           ),
                           Text('${post.likeCount}'),
                           const SizedBox(width: AppSpacing.md),
@@ -84,7 +95,10 @@ class _FeedPostDetailsScreenState extends ConsumerState<FeedPostDetailsScreen> {
                 ),
               ),
               const SizedBox(height: AppSpacing.md),
-              Text(strings.comments, style: Theme.of(context).textTheme.titleLarge),
+              Text(
+                strings.comments,
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
               const SizedBox(height: AppSpacing.sm),
               if (post.comments.isEmpty)
                 Padding(
@@ -93,7 +107,9 @@ class _FeedPostDetailsScreenState extends ConsumerState<FeedPostDetailsScreen> {
                 ),
               for (final comment in post.comments)
                 ListTile(
-                  leading: CircleAvatar(child: Text(comment.authorName.characters.first)),
+                  leading: CircleAvatar(
+                    child: Text(comment.authorName.characters.first),
+                  ),
                   title: Text(comment.authorName),
                   subtitle: Text(comment.text),
                 ),
@@ -108,7 +124,9 @@ class _FeedPostDetailsScreenState extends ConsumerState<FeedPostDetailsScreen> {
                     child: TextField(
                       key: const Key('feed-comment-input'),
                       controller: _commentController,
-                      decoration: InputDecoration(hintText: strings.writeComment),
+                      decoration: InputDecoration(
+                        hintText: strings.writeComment,
+                      ),
                     ),
                   ),
                   IconButton(
@@ -137,7 +155,9 @@ class _FeedPostDetailsScreenState extends ConsumerState<FeedPostDetailsScreen> {
 String _relativeTime(DateTime time, AppLocalizations strings) {
   final difference = DateTime.now().difference(time);
   if (difference.inMinutes < 1) return strings.justNow;
-  if (difference.inMinutes < 60) return strings.minutesAgo(difference.inMinutes);
+  if (difference.inMinutes < 60) {
+    return strings.minutesAgo(difference.inMinutes);
+  }
   if (difference.inHours < 24) return strings.hoursAgo(difference.inHours);
   return strings.daysAgo(difference.inDays);
 }
