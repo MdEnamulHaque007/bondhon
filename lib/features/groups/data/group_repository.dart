@@ -32,7 +32,7 @@ class GroupRepository extends ChangeNotifier {
     required GroupVisibility visibility,
   }) {
     final now = DateTime.now();
-    final id = 'local-\${now.microsecondsSinceEpoch}';
+    final id = 'local-${now.microsecondsSinceEpoch}';
     final group = Group(
       id: id,
       name: name.trim(),
@@ -108,7 +108,7 @@ class GroupRepository extends ChangeNotifier {
       return;
     }
     final next = GroupMessage(
-      id: 'message-\${DateTime.now().microsecondsSinceEpoch}',
+      id: 'message-${DateTime.now().microsecondsSinceEpoch}',
       senderId: 'guest',
       senderName: guest.name,
       text: message,
