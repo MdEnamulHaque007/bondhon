@@ -9,6 +9,7 @@ import 'package:bondhon/features/discover/presentation/screens/discover_profile_
 import 'package:bondhon/features/discover/presentation/screens/discover_screen.dart';
 import 'package:bondhon/features/friends/presentation/screens/friends_screen.dart';
 import 'package:bondhon/features/feed/presentation/screens/feed_screen.dart';
+import 'package:bondhon/features/feed/presentation/screens/feed_post_details_screen.dart';
 import 'package:bondhon/features/groups/presentation/screens/group_details_screen.dart';
 import 'package:bondhon/features/groups/presentation/screens/groups_screen.dart';
 import 'package:bondhon/features/home/presentation/screens/home_screen.dart';
@@ -25,6 +26,9 @@ abstract final class AppRoutes {
   static const welcome = '/';
   static const home = '/home';
   static const feed = '/feed';
+  static const feedPost = '/feed/:postId';
+
+  static String feedPostDetails(String postId) => '/feed/$postId';
   static const chats = '/chats';
   static const chat = '/chats/:conversationId';
   static const rooms = '/rooms';
@@ -70,6 +74,15 @@ final GoRouter appRouter = GoRouter(
           path: AppRoutes.feed,
           name: 'feed',
           builder: (context, state) => const FeedScreen(),
+          routes: [
+            GoRoute(
+              path: ':postId',
+              name: 'feed-post-details',
+              builder: (context, state) => FeedPostDetailsScreen(
+                postId: state.pathParameters['postId']!,
+              ),
+            ),
+          ],
         ),
         GoRoute(
           path: AppRoutes.notifications,
