@@ -23,6 +23,7 @@ abstract final class AppColors {
   static const teal = Color(0xFF0D9488);
 
   static const ink = Color(0xFF17211E);
+  static const muted = Color(0xFF5B6B66);
   static const cloud = Color(0xFFF5F8F7);
   static const white = Color(0xFFFFFFFF);
 }
