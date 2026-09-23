@@ -65,6 +65,28 @@ class AppLocalizations {
   String get discover => _text('discover');
   String get profile => _text('profile');
   String get groups => _text('groups');
+  String get groupsDescription => _text('groupsDescription');
+  String get createGroup => _text('createGroup');
+  String get groupName => _text('groupName');
+  String get groupDescription => _text('groupDescription');
+  String get publicGroup => _text('publicGroup');
+  String get privateGroup => _text('privateGroup');
+  String get publicGroupInfo => _text('publicGroupInfo');
+  String get privateGroupInfo => _text('privateGroupInfo');
+  String get searchGroups => _text('searchGroups');
+  String get noGroupsFound => _text('noGroupsFound');
+  String get groupNotFound => _text('groupNotFound');
+  String get rolesPreview => _text('rolesPreview');
+  String get owner => _text('owner');
+  String get admin => _text('admin');
+  String get member => _text('member');
+  String get memberPreview => _text('memberPreview');
+  String get joinAsGuest => _text('joinAsGuest');
+  String get joined => _text('joined');
+  String get copyInviteLink => _text('copyInviteLink');
+  String get inviteLinkCopied => _text('inviteLinkCopied');
+  String get leaveGroup => _text('leaveGroup');
+  String get adminOnlyMessaging => _text('adminOnlyMessaging');
   String get chatRooms => _text('chatRooms');
   String get comingSoon => _text('comingSoon');
   String get chatsDescription => _text('chatsDescription');
@@ -235,6 +257,28 @@ class AppLocalizations {
       'discover': 'Discover',
       'profile': 'Profile',
       'groups': 'Groups',
+      'groupsDescription': 'Discover public and private communities and chat as a guest.',
+      'createGroup': 'Create group',
+      'groupName': 'Group name',
+      'groupDescription': 'Group description',
+      'publicGroup': 'Public group',
+      'privateGroup': 'Private group',
+      'publicGroupInfo': 'Anyone can discover and join this group.',
+      'privateGroupInfo': 'Keep this group visible only to invited members.',
+      'searchGroups': 'Search groups',
+      'noGroupsFound': 'No groups match your search.',
+      'groupNotFound': 'Group not found.',
+      'rolesPreview': 'Roles',
+      'owner': 'Owner',
+      'admin': 'Admin',
+      'member': 'Member',
+      'memberPreview': 'Member preview',
+      'joinAsGuest': 'Join as guest',
+      'joined': 'Joined',
+      'copyInviteLink': 'Copy invite link',
+      'inviteLinkCopied': 'Dummy invite link copied.',
+      'leaveGroup': 'Leave group',
+      'adminOnlyMessaging': 'Only group admins can send messages in this group.',
       'chatRooms': 'Chat Rooms',
       'comingSoon': 'Coming soon',
       'chatsDescription': 'Your private and group conversations will appear here.',
@@ -404,6 +448,28 @@ class AppLocalizations {
       'discover': 'খুঁজুন',
       'profile': 'প্রোফাইল',
       'groups': 'গ্রুপ',
+      'groupsDescription': 'পাবলিক ও প্রাইভেট কমিউনিটি খুঁজুন এবং অতিথি হিসেবে চ্যাট করুন।',
+      'createGroup': 'গ্রুপ তৈরি করুন',
+      'groupName': 'গ্রুপের নাম',
+      'groupDescription': 'গ্রুপের বর্ণনা',
+      'publicGroup': 'পাবলিক গ্রুপ',
+      'privateGroup': 'প্রাইভেট গ্রুপ',
+      'publicGroupInfo': 'যে কেউ এই গ্রুপ খুঁজে পেয়ে যোগ দিতে পারবে।',
+      'privateGroupInfo': 'এই গ্রুপ শুধু আমন্ত্রিত সদস্যদের জন্য।',
+      'searchGroups': 'গ্রুপ খুঁজুন',
+      'noGroupsFound': 'আপনার অনুসন্ধানের সঙ্গে কোনো গ্রুপ পাওয়া যায়নি।',
+      'groupNotFound': 'গ্রুপটি পাওয়া যায়নি।',
+      'rolesPreview': 'ভূমিকা',
+      'owner': 'মালিক',
+      'admin': 'অ্যাডমিন',
+      'member': 'সদস্য',
+      'memberPreview': 'সদস্যদের তালিকা',
+      'joinAsGuest': 'অতিথি হিসেবে যোগ দিন',
+      'joined': 'যোগ দিয়েছেন',
+      'copyInviteLink': 'ইনভাইট লিংক কপি করুন',
+      'inviteLinkCopied': 'ডামি ইনভাইট লিংক কপি হয়েছে।',
+      'leaveGroup': 'গ্রুপ ছাড়ুন',
+      'adminOnlyMessaging': 'এই গ্রুপে শুধু অ্যাডমিনরা মেসেজ পাঠাতে পারবেন।',
       'chatRooms': 'চ্যাট রুম',
       'comingSoon': 'শিগগিরই আসছে',
       'chatsDescription': 'আপনার ব্যক্তিগত ও গ্রুপ কথোপকথন এখানে দেখা যাবে।',
