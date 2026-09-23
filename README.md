@@ -55,7 +55,7 @@ is active in the current build.
 
 - Mobile: Material 3 bottom navigation
 - Tablet/Desktop: navigation rail
-- Initial tabs: Home, Chats, Rooms, Discover, and Profile
+- Initial tabs: Home, Chats, Rooms, Groups, Discover, and Profile
 
 ## Guest profile
 
@@ -75,6 +75,19 @@ is active in the current build.
 - Responsive room cards with member counts and live indicators
 - Room detail route with preview messages and a Guest Mode join flow
 - Local message composer structure ready for a future real-time backend
+
+## Social Feed MVP
+
+- Home now opens the local Social Feed experience; a standalone `/feed` route is also available
+- Feature-first module under `lib/features/feed/`
+- Local/mock text posts plus photo-placeholder posts
+- Guest post creation with Public, Friends, and Only Me privacy
+- Local like/unlike and comment interactions
+- Post details route: `/feed/:postId`
+- Existing safety report dialog is reused for post reporting
+- English and Bangla strings are centralized in `AppLocalizations`
+- No Firebase or authentication dependency; `FeedRepository` is isolated for a future backend
+- Feed repository and create/like/comment widget coverage are included in tests
 
 ## Group Chat MVP
 
