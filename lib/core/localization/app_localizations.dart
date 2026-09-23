@@ -235,6 +235,14 @@ class AppLocalizations {
   String get adminDismissed => _text('adminDismissed');
   String get adminRemove => _text('adminRemove');
   String get adminKeep => _text('adminKeep');
+  String get adminActions => _text('adminActions');
+  String get adminActionReason => _text('adminActionReason');
+  String get adminActionReasonHint => _text('adminActionReasonHint');
+  String get adminConfirmAction => _text('adminConfirmAction');
+  String get adminActionSaved => _text('adminActionSaved');
+  String get adminUserDetails => _text('adminUserDetails');
+  String get adminActionHistory => _text('adminActionHistory');
+  String get adminNoHistory => _text('adminNoHistory');
 
   String get privacySettings => _text('privacySettings');
   String get lastSeenVisibility => _text('lastSeenVisibility');
@@ -485,6 +493,14 @@ class AppLocalizations {
       'adminDismissed': 'Dismissed',
       'adminRemove': 'Remove',
       'adminKeep': 'Keep',
+      'adminActions': 'Actions',
+      'adminActionReason': 'Reason',
+      'adminActionReasonHint': 'Optional moderation reason',
+      'adminConfirmAction': 'Confirm action',
+      'adminActionSaved': 'Local moderation action saved.',
+      'adminUserDetails': 'User details',
+      'adminActionHistory': 'Moderation history',
+      'adminNoHistory': 'No moderation actions yet.',
       'privacySettings': 'Privacy & Safety',
       'lastSeenVisibility': 'Last seen visibility',
       'lastSeenVisibilityInfo': 'Control who can see when you were last active.',
@@ -727,6 +743,14 @@ class AppLocalizations {
       'adminDismissed': 'খারিজ',
       'adminRemove': 'সরান',
       'adminKeep': 'রাখুন',
+      'adminActions': 'অ্যাকশন',
+      'adminActionReason': 'কারণ',
+      'adminActionReasonHint': 'ঐচ্ছিক মডারেশন কারণ',
+      'adminConfirmAction': 'অ্যাকশন নিশ্চিত করুন',
+      'adminActionSaved': 'লোকাল মডারেশন অ্যাকশন সংরক্ষণ করা হয়েছে।',
+      'adminUserDetails': 'ইউজার বিস্তারিত',
+      'adminActionHistory': 'মডারেশন ইতিহাস',
+      'adminNoHistory': 'এখনও কোনো মডারেশন অ্যাকশন নেই।',
       'privacySettings': 'প্রাইভেসি ও সেফটি',
       'lastSeenVisibility': 'শেষবার সক্রিয় থাকার তথ্য',
       'lastSeenVisibilityInfo': 'কে আপনার লাস্ট সিন দেখতে পারবে তা নিয়ন্ত্রণ করুন।',
