@@ -73,7 +73,7 @@ final GoRouter appRouter = GoRouter(
         GoRoute(
           path: AppRoutes.feed,
           name: 'feed',
-          builder: (context, state) => const FeedScreen(),
+          builder: (context, state) => const FeedScreen(showAppBar: false),
           routes: [
             GoRoute(
               path: ':postId',
