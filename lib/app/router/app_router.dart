@@ -5,6 +5,7 @@ import 'package:bondhon/features/admin/presentation/screens/admin_content_screen
 import 'package:bondhon/features/admin/presentation/screens/admin_dashboard_screen.dart';
 import 'package:bondhon/features/admin/presentation/screens/admin_reports_screen.dart';
 import 'package:bondhon/features/admin/presentation/screens/admin_users_screen.dart';
+import 'package:bondhon/features/admin/presentation/screens/admin_user_details_screen.dart';
 import 'package:bondhon/features/auth/presentation/screens/login_screen.dart';
 import 'package:bondhon/features/auth/presentation/screens/register_screen.dart';
 import 'package:bondhon/features/chats/presentation/screens/chats_screen.dart';
@@ -188,6 +189,15 @@ final GoRouter appRouter = GoRouter(
           path: 'users',
           name: 'admin-users',
           builder: (context, state) => const AdminUsersScreen(),
+          routes: [
+            GoRoute(
+              path: ':userId',
+              name: 'admin-user-details',
+              builder: (context, state) => AdminUserDetailsScreen(
+                userId: state.pathParameters['userId']!,
+              ),
+            ),
+          ],
         ),
         GoRoute(
           path: 'reports',
