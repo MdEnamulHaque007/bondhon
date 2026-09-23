@@ -41,7 +41,7 @@ class _GroupsScreenState extends State<GroupsScreen> {
     return SafeArea(
       child: CustomScrollView(
         slivers: [
-          SpiverPaddingFix(
+          SliverPadding(
             padding: const EdgeInsets.fromLTRB(
               AppSpacing.lg,
               AppSpacing.lg,
@@ -118,7 +118,8 @@ class _GroupsScreenState extends State<GroupsScreen> {
                   crossAxisSpacing: AppSpacing.md,
                   mainAxisSpacing: AppSpacing.md,
                 ),
-                itemBuilder: (context, index) => _GroupCard(group: groups[index]),
+                itemBuilder: (context, index) =>
+                    _GroupCard(group: groups[index]),
               ),
             ),
         ],
@@ -151,19 +152,25 @@ class _GroupsScreenState extends State<GroupsScreen> {
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(strings.createGroup, style: Theme.of(context).textTheme.headlineSmall),
+                    Text(
+                      strings.createGroup,
+                      style: Theme.of(context).textTheme.headlineSmall,
+                    ),
                     const SizedBox(height: AppSpacing.md),
                     TextField(
                       controller: nameController,
                       textInputAction: TextInputAction.next,
                       onChanged: (_) => setModalState(() {}),
-                      decoration: InputDecoration(labelText: strings.groupName),
+                      decoration:
+                          InputDecoration(labelText: strings.groupName),
                     ),
                     const SizedBox(height: AppSpacing.sm),
                     TextField(
                       controller: descriptionController,
                       maxLines: 3,
-                      decoration: InputDecoration(labelText: strings.groupDescription),
+                      decoration: InputDecoration(
+                        labelText: strings.groupDescription,
+                      ),
                     ),
                     const SizedBox(height: AppSpacing.sm),
                     SwitchListTile(
@@ -238,7 +245,10 @@ class _GroupCard extends StatelessWidget {
                     backgroundColor: group.logoColor,
                     child: Text(
                       group.name.isEmpty ? '?' : group.name[0].toUpperCase(),
-                      style: TextStyle(color: colors.onPrimary, fontWeight: FontWeight.w800),
+                      style: TextStyle(
+                        color: colors.onPrimary,
+                        fontWeight: FontWeight.w800,
+                      ),
                     ),
                   ),
                   const SizedBox(width: AppSpacing.md),
@@ -268,7 +278,11 @@ class _GroupCard extends StatelessWidget {
               ),
               Row(
                 children: [
-                  Icon(Icons.people_outline_rounded, size: 18, color: colors.onSurfaceVariant),
+                  Icon(
+                    Icons.people_outline_rounded,
+                    size: 18,
+                    color: colors.onSurfaceVariant,
+                  ),
                   const SizedBox(width: AppSpacing.xs),
                   Text(strings.memberCount(group.memberCount)),
                   const Spacer(),
