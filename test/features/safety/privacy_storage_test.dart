@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   test('persists and restores privacy settings', () async {
+    SharedPreferences.setMockInitialValues({});
     final preferences = SharedPreferencesAsync();
     await preferences.remove(PrivacyStorage.privacySettingsKey);
     final storage = PrivacyStorage(preferences: preferences);
