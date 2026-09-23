@@ -76,6 +76,18 @@ is active in the current build.
 - Room detail route with preview messages and a Guest Mode join flow
 - Local message composer structure ready for a future real-time backend
 
+## Group Chat MVP
+
+- Feature-first group module under `lib/features/groups/`
+- Searchable public and private group directory with member counts and last activity
+- Guest-friendly local group creation with public/private visibility
+- Group detail/chat route with mock messages and a local Guest join flow
+- UI-level Owner, Admin, and Member roles with optional admin-only messaging
+- Copyable dummy invite links, member preview, and local leave-group support
+- GoRouter routes: `/groups` and `/groups/:groupId`
+- English and Bangla strings are centralized in `AppLocalizations`
+- No Firebase or authentication dependency; `GroupRepository` is isolated so a future backend can replace the mock data layer
+
 ## Private chats
 
 - Searchable one-to-one conversation list with online status and unread badges
