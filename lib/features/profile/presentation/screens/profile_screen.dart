@@ -235,6 +235,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                           const Divider(height: 1),
                           ListTile(
+                            leading: const Icon(Icons.privacy_tip_outlined),
+                            title: Text(strings.privacySettings),
+                            subtitle: Text(strings.privacyLocalOnlyInfo),
+                            onTap: () => context.go(AppRoutes.privacySettings),
+                          ),
+                          const Divider(height: 1),
+                          ListTile(
                             leading: const Icon(Icons.block_rounded),
                             title: Text(strings.blockedUsers),
                             subtitle: Text(strings.blockedUsersInfo),
