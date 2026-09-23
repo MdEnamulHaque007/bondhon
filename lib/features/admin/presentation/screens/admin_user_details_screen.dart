@@ -7,7 +7,8 @@ class AdminUserDetailsScreen extends StatelessWidget {
   const AdminUserDetailsScreen({super.key, required this.userId, this.repository});
   final String userId; final AdminRepository? repository;
   @override Widget build(BuildContext context){final s=AppLocalizations.of(context);final r=repository??adminRepository;return AnimatedBuilder(animation:r,builder:(context,_){
-    final user=r.users.where((u)=>u.id==userId).firstOrNull;
+    AdminUser? user;
+    for (final candidate in r.users) { if (candidate.id == userId) { user = candidate; break; } }
     if(user==null)return Scaffold(appBar:AppBar(title:Text(s.adminUserDetails)),body:Center(child:Text(s.userNotFound)));
     final history=r.historyFor(user.id);
     return Scaffold(appBar:AppBar(title:Text(s.adminUserDetails)),body:ListView(padding:const EdgeInsets.all(AppSpacing.lg),children:[
