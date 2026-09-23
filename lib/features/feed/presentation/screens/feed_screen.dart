@@ -1,11 +1,12 @@
+import 'package:bondhon/app/router/app_router.dart';
 import 'package:bondhon/app/theme/app_spacing.dart';
 import 'package:bondhon/core/localization/app_localizations.dart';
 import 'package:bondhon/features/auth/presentation/controllers/auth_providers.dart';
 import 'package:bondhon/features/feed/data/feed_repository.dart';
 import 'package:bondhon/features/feed/domain/entities/feed_post.dart';
-import 'package:bondhon/features/feed/presentation/screens/feed_post_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 class FeedScreen extends ConsumerWidget {
   const FeedScreen({this.showAppBar = true, this.repository = feedRepository, super.key});
