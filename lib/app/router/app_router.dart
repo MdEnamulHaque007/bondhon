@@ -18,6 +18,7 @@ import 'package:bondhon/features/profile/presentation/screens/profile_screen.dar
 import 'package:bondhon/features/rooms/presentation/screens/room_details_screen.dart';
 import 'package:bondhon/features/rooms/presentation/screens/rooms_screen.dart';
 import 'package:bondhon/features/safety/presentation/screens/blocked_users_screen.dart';
+import 'package:bondhon/features/safety/presentation/screens/privacy_settings_screen.dart';
 import 'package:bondhon/features/welcome/presentation/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -40,6 +41,7 @@ abstract final class AppRoutes {
   static const friends = '/discover/friends';
   static const profile = '/profile';
   static const blockedUsers = '/profile/blocked-users';
+  static const privacySettings = '/profile/privacy';
   static const notifications = '/notifications';
   static const login = '/login';
   static const register = '/register';
@@ -155,6 +157,11 @@ final GoRouter appRouter = GoRouter(
           name: 'profile',
           builder: (context, state) => const ProfileScreen(),
           routes: [
+            GoRoute(
+              path: 'privacy',
+              name: 'privacy-settings',
+              builder: (context, state) => const PrivacySettingsScreen(),
+            ),
             GoRoute(
               path: 'blocked-users',
               name: 'blocked-users',
