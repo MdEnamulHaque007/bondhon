@@ -76,6 +76,16 @@ is active in the current build.
 - Room detail route with preview messages and a Guest Mode join flow
 - Local message composer structure ready for a future real-time backend
 
+## Privacy & Safety MVP
+
+- Profile > Privacy & Safety settings for last seen, profile photo, direct messages, and group adds
+- Settings are stored locally with `SharedPreferencesAsync`
+- Existing blocked-users storage and report/block UI remain the shared safety path
+- Privacy settings are feature-first under `lib/features/safety/`
+- English and Bangla localization is included
+- No Firebase or authentication dependency is added
+- The controls are local MVP preferences; backend enforcement can be added later
+
 ## Social Feed MVP
 
 - Home now opens the local Social Feed experience; a standalone `/feed` route is also available
