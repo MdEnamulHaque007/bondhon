@@ -38,6 +38,7 @@ class FeedScreen extends ConsumerWidget {
             _CreatePostCard(
               authorName: user.displayName,
               authorId: user.id,
+              repository: repository,
             ),
             const SizedBox(height: AppSpacing.md),
             for (final post in repository.posts)
@@ -61,9 +62,10 @@ class FeedScreen extends ConsumerWidget {
 }
 
 class _CreatePostCard extends StatefulWidget {
-  const _CreatePostCard({required this.authorName, required this.authorId});
+  const _CreatePostCard({required this.authorName, required this.authorId, required this.repository});
   final String authorName;
   final String authorId;
+  final FeedRepository repository;
 
   @override
   State<_CreatePostCard> createState() => _CreatePostCardState();
