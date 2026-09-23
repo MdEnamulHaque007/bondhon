@@ -84,7 +84,7 @@ class _CreatePostCardState extends State<_CreatePostCard> {
 
   void _createPost() {
     if (_controller.text.trim().isEmpty) return;
-    repository.createPost(
+    widget.repository.createPost(
       authorName: widget.authorName,
       authorId: widget.authorId,
       content: _controller.text,
