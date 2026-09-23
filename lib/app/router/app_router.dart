@@ -1,6 +1,10 @@
 import 'package:bondhon/core/localization/app_localizations.dart';
 import 'package:bondhon/app/shell/app_shell.dart';
 import 'package:bondhon/features/auth/presentation/screens/forgot_password_screen.dart';
+import 'package:bondhon/features/admin/presentation/screens/admin_content_screen.dart';
+import 'package:bondhon/features/admin/presentation/screens/admin_dashboard_screen.dart';
+import 'package:bondhon/features/admin/presentation/screens/admin_reports_screen.dart';
+import 'package:bondhon/features/admin/presentation/screens/admin_users_screen.dart';
 import 'package:bondhon/features/auth/presentation/screens/login_screen.dart';
 import 'package:bondhon/features/auth/presentation/screens/register_screen.dart';
 import 'package:bondhon/features/chats/presentation/screens/chats_screen.dart';
@@ -46,6 +50,10 @@ abstract final class AppRoutes {
   static const login = '/login';
   static const register = '/register';
   static const forgotPassword = '/forgot-password';
+  static const admin = '/admin';
+  static const adminUsers = '/admin/users';
+  static const adminReports = '/admin/reports';
+  static const adminContent = '/admin/content';
 
   static String roomDetails(String roomId) => '/rooms/$roomId';
   static String groupDetails(String groupId) => '/groups/$groupId';
@@ -169,6 +177,16 @@ final GoRouter appRouter = GoRouter(
             ),
           ],
         ),
+      ],
+    ),
+    GoRoute(
+      path: AppRoutes.admin,
+      name: 'admin',
+      builder: (context, state) => const AdminDashboardScreen(),
+      routes: [
+        GoRoute(path: 'users', name: 'admin-users', builder: (context, state) => const AdminUsersScreen()),
+        GoRoute(path: 'reports', name: 'admin-reports', builder: (context, state) => const AdminReportsScreen()),
+        GoRoute(path: 'content', name: 'admin-content', builder: (context, state) => const AdminContentScreen()),
       ],
     ),
     GoRoute(
