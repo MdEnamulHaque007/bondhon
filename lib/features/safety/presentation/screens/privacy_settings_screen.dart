@@ -126,6 +126,7 @@ class _PrivacySettingsScreenState extends State<PrivacySettingsScreen> {
                       onChanged: (value) => _setValue(
                         _settings.copyWith(allowGroupAdds: value),
                       ),
+                    ),
                   ],
                 ),
               ),
