@@ -2,6 +2,8 @@ import 'package:flutter/foundation.dart';
 
 import 'package:bondhon/features/groups/domain/entities/group.dart';
 
+final groupRepository = GroupRepository();
+
 class GroupRepository extends ChangeNotifier {
   GroupRepository({List<Group>? initialGroups})
       : _groups = List<Group>.from(initialGroups ?? _mockGroups);
