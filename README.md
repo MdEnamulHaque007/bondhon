@@ -132,6 +132,16 @@ is active in the current build.
 - Local accept, reject, and cancel-request interactions with status feedback
 - Repository-driven relationship state ready for backend synchronization
 
+## Admin Panel scaffold
+
+- Profile → **Admin demo** opens the local-only admin dashboard; no Admin tab is added to mobile navigation.
+- `/admin`, `/admin/users`, `/admin/reports`, and `/admin/content` are mock/demo routes.
+- Dashboard KPIs, users, reports, and flagged content are local in-memory mock data only.
+- User actions (Warn, Suspend, Ban, Unban), report review/dismiss, and content Remove/Keep only change local demo state.
+- A clear banner marks the panel as demo-only and not connected to production.
+- English and Bangla localization follows the existing AppLocalizations pattern.
+- **Before production:** real admin roles/permissions, Firestore Security Rules, and server-side validation must be implemented. Client-side UI actions alone are not a security boundary.
+
 ## Safety and moderation
 
 - Report users or individual private messages with structured report reasons
