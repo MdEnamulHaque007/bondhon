@@ -24,6 +24,7 @@ class _AppShellState extends State<AppShell> {
     AppRoutes.home,
     AppRoutes.chats,
     AppRoutes.rooms,
+    AppRoutes.groups,
     AppRoutes.discover,
     AppRoutes.profile,
   ];
@@ -50,6 +51,7 @@ class _AppShellState extends State<AppShell> {
       (icon: Icons.home_outlined, selectedIcon: Icons.home_rounded, label: strings.home),
       (icon: Icons.chat_bubble_outline_rounded, selectedIcon: Icons.chat_bubble_rounded, label: strings.chats),
       (icon: Icons.forum_outlined, selectedIcon: Icons.forum_rounded, label: strings.rooms),
+      (icon: Icons.groups_outlined, selectedIcon: Icons.groups_rounded, label: strings.groups),
       (icon: Icons.explore_outlined, selectedIcon: Icons.explore_rounded, label: strings.discover),
       (icon: Icons.person_outline_rounded, selectedIcon: Icons.person_rounded, label: strings.profile),
     ];
