@@ -9,17 +9,18 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 class FeedScreen extends ConsumerWidget {
-  const FeedScreen({this.showAppBar = true, this.repository = feedRepository, super.key});
+  const FeedScreen({this.showAppBar = true, this.repository, super.key});
 
   final bool showAppBar;
-  final FeedRepository repository;
+  final FeedRepository? repository;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final strings = AppLocalizations.of(context);
     final user = ref.watch(currentUserProvider);
+    final feed = repository ?? feedRepository;
     return AnimatedBuilder(
-      animation: repository,
+      animation: feed,
       builder: (context, _) => Scaffold(
         appBar: showAppBar
             ? AppBar(
@@ -27,7 +28,7 @@ class FeedScreen extends ConsumerWidget {
                 actions: [
                   IconButton(
                     tooltip: strings.refreshFeed,
-                    onPressed: () => repository.notifyListeners(),
+                    onPressed: () => feed.notifyListeners(),
                     icon: const Icon(Icons.refresh_rounded),
                   ),
                 ],
@@ -39,15 +40,15 @@ class FeedScreen extends ConsumerWidget {
             _CreatePostCard(
               authorName: user.displayName,
               authorId: user.id,
-              repository: repository,
+              repository: feed,
             ),
             const SizedBox(height: AppSpacing.md),
-            for (final post in repository.posts)
+            for (final post in feed.posts)
               Padding(
                 padding: const EdgeInsets.only(bottom: AppSpacing.md),
                 child: _PostCard(
                   post: post,
-                  onLike: () => repository.toggleLike(post.id),
+                  onLike: () => feed.toggleLike(post.id),
                   onOpen: () => Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (_) => FeedPostDetailsScreen(postId: post.id),
