@@ -216,6 +216,16 @@ class AppLocalizations {
   String get whoCanAddToGroup => _text('whoCanAddToGroup');
   String get whoCanAddToGroupInfo => _text('whoCanAddToGroupInfo');
   String get privacyLocalOnlyInfo => _text('privacyLocalOnlyInfo');
+  String get privacySettings => _text('privacySettings');
+  String get lastSeenVisibility => _text('lastSeenVisibility');
+  String get lastSeenVisibilityInfo => _text('lastSeenVisibilityInfo');
+  String get profilePhotoVisibility => _text('profilePhotoVisibility');
+  String get profilePhotoVisibilityInfo => _text('profilePhotoVisibilityInfo');
+  String get whoCanMessage => _text('whoCanMessage');
+  String get whoCanMessageInfo => _text('whoCanMessageInfo');
+  String get whoCanAddToGroup => _text('whoCanAddToGroup');
+  String get whoCanAddToGroupInfo => _text('whoCanAddToGroupInfo');
+  String get privacyLocalOnlyInfo => _text('privacyLocalOnlyInfo');
   String get blockedUsersInfo => _text('blockedUsersInfo');
   String get noBlockedUsers => _text('noBlockedUsers');
   String get unblock => _text('unblock');
@@ -444,6 +454,16 @@ class AppLocalizations {
       'whoCanAddToGroup': 'Who can add me to groups',
       'whoCanAddToGroupInfo': 'Allow people to add you to local/mock groups.',
       'privacyLocalOnlyInfo': 'These privacy controls are saved on this device. They will be enforced by a future backend.',
+      'privacySettings': 'Privacy & Safety',
+      'lastSeenVisibility': 'Last seen visibility',
+      'lastSeenVisibilityInfo': 'Let people see when you were last active.',
+      'profilePhotoVisibility': 'Profile photo visibility',
+      'profilePhotoVisibilityInfo': 'Allow people to see your profile photo.',
+      'whoCanMessage': 'Who can message me',
+      'whoCanMessageInfo': 'Allow people to start a direct chat with you.',
+      'whoCanAddToGroup': 'Who can add me to groups',
+      'whoCanAddToGroupInfo': 'Allow people to add you to local/mock groups.',
+      'privacyLocalOnlyInfo': 'These privacy controls are saved on this device. They will be enforced by a future backend.',
       'blockedUsersInfo': 'Review and unblock people you have blocked.',
       'noBlockedUsers': 'You have not blocked anyone.',
       'unblock': 'Unblock',
@@ -653,6 +673,16 @@ class AppLocalizations {
           'আপনি কি {name}-কে ব্লক করতে চান? আপনার blocked interaction থেকে তাকে লুকানো হবে।',
       'userBlocked': 'ব্যবহারকারীকে ব্লক করা হয়েছে।',
       'blockedUsers': 'ব্লক করা ব্যবহারকারী',
+      'privacySettings': 'প্রাইভেসি ও সেফটি',
+      'lastSeenVisibility': 'শেষবার সক্রিয় থাকার তথ্য',
+      'lastSeenVisibilityInfo': 'অন্যরা আপনার শেষবার সক্রিয় থাকার সময় দেখতে পারবে।',
+      'profilePhotoVisibility': 'প্রোফাইল ছবির দৃশ্যমানতা',
+      'profilePhotoVisibilityInfo': 'অন্যদের আপনার প্রোফাইল ছবি দেখতে দিন।',
+      'whoCanMessage': 'কে আমাকে মেসেজ করতে পারবে',
+      'whoCanMessageInfo': 'অন্যদের আপনার সঙ্গে সরাসরি চ্যাট শুরু করতে দিন।',
+      'whoCanAddToGroup': 'কে আমাকে গ্রুপে যোগ করতে পারবে',
+      'whoCanAddToGroupInfo': 'অন্যদের লোকাল/মক গ্রুপে আপনাকে যোগ করতে দিন।',
+      'privacyLocalOnlyInfo': 'এই প্রাইভেসি সেটিংগুলো এই ডিভাইসেই সংরক্ষিত হয়। ভবিষ্যৎ backend এগুলো কার্যকর করবে।',
       'privacySettings': 'প্রাইভেসি ও সেফটি',
       'lastSeenVisibility': 'শেষবার সক্রিয় থাকার তথ্য',
       'lastSeenVisibilityInfo': 'অন্যরা আপনার শেষবার সক্রিয় থাকার সময় দেখতে পারবে।',
