@@ -1,0 +1,3 @@
+import 'package:bondhon/features/admin/data/admin_repository.dart';import 'package:flutter_test/flutter_test.dart';
+void main(){test('updates mock user status locally',(){final r=AdminRepository();r.setUserStatus('u1',AdminUserStatus.suspended);expect(r.users.first.status,AdminUserStatus.suspended);});
+test('updates report status and open KPI locally',(){final r=AdminRepository();expect(r.openReports,4);r.setReportStatus('r1',AdminReportStatus.reviewed);expect(r.openReports,3);});}
