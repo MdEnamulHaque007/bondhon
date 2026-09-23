@@ -6,8 +6,6 @@ import 'package:bondhon/features/groups/domain/entities/group.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-final groupRepository = GroupRepository();
-
 class GroupsScreen extends StatefulWidget {
   const GroupsScreen({super.key, this.repository = groupRepository});
 
