@@ -6,11 +6,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class GroupDetailsScreen extends StatefulWidget {
-  const GroupDetailsScreen({
+  GroupDetailsScreen({
     required this.groupId,
     super.key,
-    this.repository = groupRepository,
-  });
+    GroupRepository? repository,
+  }) : repository = repository ?? groupRepository;
 
   final String groupId;
   final GroupRepository repository;
@@ -46,7 +46,8 @@ class _GroupDetailsScreenState extends State<GroupDetailsScreen> {
     }
 
     final joined = widget.repository.isMember(group.id);
-    final guest = group.members.where((member) => member.id == 'guest').firstOrNull;
+    final guest =
+        group.members.where((member) => member.id == 'guest').firstOrNull;
     final canMessage = joined &&
         (!group.adminOnlyMessaging ||
             guest?.role == GroupRole.owner ||
@@ -70,7 +71,8 @@ class _GroupDetailsScreenState extends State<GroupDetailsScreen> {
                 AppSpacing.md,
               ),
               itemCount: group.messages.length,
-              separatorBuilder: (_, __) => const SizedBox(height: AppSpacing.sm),
+              separatorBuilder: (_, __) =>
+                  const SizedBox(height: AppSpacing.sm),
               itemBuilder: (context, index) =>
                   _MessageBubble(message: group.messages[index]),
             ),
@@ -133,7 +135,12 @@ class _GroupHeader extends StatelessWidget {
     }).join('  •  ');
 
     return Card(
-      margin: const EdgeInsets.fromLTRB(AppSpacing.md, AppSpacing.md, AppSpacing.md, 0),
+      margin: const EdgeInsets.fromLTRB(
+        AppSpacing.md,
+        AppSpacing.md,
+        AppSpacing.md,
+        0,
+      ),
       child: Padding(
         padding: const EdgeInsets.all(AppSpacing.md),
         child: Column(
@@ -146,7 +153,10 @@ class _GroupHeader extends StatelessWidget {
                   backgroundColor: group.logoColor,
                   child: Text(
                     group.name.isEmpty ? '?' : group.name[0].toUpperCase(),
-                    style: TextStyle(color: colors.onPrimary, fontWeight: FontWeight.w800),
+                    style: TextStyle(
+                      color: colors.onPrimary,
+                      fontWeight: FontWeight.w800,
+                    ),
                   ),
                 ),
                 const SizedBox(width: AppSpacing.md),
@@ -154,7 +164,10 @@ class _GroupHeader extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(group.name, style: Theme.of(context).textTheme.titleLarge),
+                      Text(
+                        group.name,
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ),
                       Text(
                         '${strings.memberCount(group.memberCount)} • '
                         '${group.visibility == GroupVisibility.public ? strings.publicGroup : strings.privateGroup}',
@@ -164,7 +177,10 @@ class _GroupHeader extends StatelessWidget {
                   ),
                 ),
                 if (!joined)
-                  FilledButton(onPressed: onJoin, child: Text(strings.joinAsGuest))
+                  FilledButton(
+                    onPressed: onJoin,
+                    child: Text(strings.joinAsGuest),
+                  )
                 else
                   Chip(
                     avatar: const Icon(Icons.check_circle_outline_rounded),
@@ -251,15 +267,23 @@ class _MessageBubble extends StatelessWidget {
       alignment: isGuest ? Alignment.centerRight : Alignment.centerLeft,
       child: Container(
         constraints: const BoxConstraints(maxWidth: 640),
-        padding: const EdgeInsets.symmetric(horizontal: AppSpacing.md, vertical: AppSpacing.sm),
+        padding: const EdgeInsets.symmetric(
+          horizontal: AppSpacing.md,
+          vertical: AppSpacing.sm,
+        ),
         decoration: BoxDecoration(
-          color: isGuest ? colors.primaryContainer : colors.surfaceContainerHighest,
+          color: isGuest
+              ? colors.primaryContainer
+              : colors.surfaceContainerHighest,
           borderRadius: BorderRadius.circular(18),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(message.senderName, style: Theme.of(context).textTheme.labelMedium),
+            Text(
+              message.senderName,
+              style: Theme.of(context).textTheme.labelMedium,
+            ),
             const SizedBox(height: AppSpacing.xxs),
             Text(message.text),
           ],
@@ -270,7 +294,11 @@ class _MessageBubble extends StatelessWidget {
 }
 
 class _Composer extends StatelessWidget {
-  const _Composer({required this.controller, required this.enabled, required this.onSend});
+  const _Composer({
+    required this.controller,
+    required this.enabled,
+    required this.onSend,
+  });
 
   final TextEditingController controller;
   final bool enabled;
@@ -282,7 +310,12 @@ class _Composer extends StatelessWidget {
     return SafeArea(
       top: false,
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(AppSpacing.md, 0, AppSpacing.md, AppSpacing.md),
+        padding: const EdgeInsets.fromLTRB(
+          AppSpacing.md,
+          0,
+          AppSpacing.md,
+          AppSpacing.md,
+        ),
         child: Row(
           children: [
             Expanded(
@@ -291,7 +324,8 @@ class _Composer extends StatelessWidget {
                 enabled: enabled,
                 onSubmitted: enabled ? (_) => onSend() : null,
                 decoration: InputDecoration(
-                  hintText: enabled ? strings.typeMessage : strings.joinToSendMessages,
+                  hintText:
+                      enabled ? strings.typeMessage : strings.joinToSendMessages,
                 ),
               ),
             ),
