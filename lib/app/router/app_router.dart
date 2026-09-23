@@ -8,6 +8,8 @@ import 'package:bondhon/features/chats/presentation/screens/direct_chat_screen.d
 import 'package:bondhon/features/discover/presentation/screens/discover_profile_screen.dart';
 import 'package:bondhon/features/discover/presentation/screens/discover_screen.dart';
 import 'package:bondhon/features/friends/presentation/screens/friends_screen.dart';
+import 'package:bondhon/features/groups/presentation/screens/group_details_screen.dart';
+import 'package:bondhon/features/groups/presentation/screens/groups_screen.dart';
 import 'package:bondhon/features/home/presentation/screens/home_screen.dart';
 import 'package:bondhon/features/notifications/presentation/screens/notifications_screen.dart';
 import 'package:bondhon/features/profile/presentation/screens/profile_screen.dart';
@@ -25,6 +27,8 @@ abstract final class AppRoutes {
   static const chat = '/chats/:conversationId';
   static const rooms = '/rooms';
   static const room = '/rooms/:roomId';
+  static const groups = '/groups';
+  static const group = '/groups/:groupId';
   static const discover = '/discover';
   static const discoverUser = '/discover/:userId';
   static const friends = '/discover/friends';
@@ -36,6 +40,7 @@ abstract final class AppRoutes {
   static const forgotPassword = '/forgot-password';
 
   static String roomDetails(String roomId) => '/rooms/$roomId';
+  static String groupDetails(String groupId) => '/groups/$groupId';
   static String chatDetails(String conversationId) => '/chats/$conversationId';
   static String discoverProfile(String userId) => '/discover/$userId';
 }
@@ -88,6 +93,20 @@ final GoRouter appRouter = GoRouter(
               name: 'room-details',
               builder: (context, state) => RoomDetailsScreen(
                 roomId: state.pathParameters['roomId']!,
+              ),
+            ),
+          ],
+        ),
+        GoRoute(
+          path: AppRoutes.groups,
+          name: 'groups',
+          builder: (context, state) => const GroupsScreen(),
+          routes: [
+            GoRoute(
+              path: ':groupId',
+              name: 'group-details',
+              builder: (context, state) => GroupDetailsScreen(
+                groupId: state.pathParameters['groupId']!,
               ),
             ),
           ],
