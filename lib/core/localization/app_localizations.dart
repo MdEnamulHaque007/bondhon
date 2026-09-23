@@ -65,6 +65,26 @@ class AppLocalizations {
   String get discover => _text('discover');
   String get profile => _text('profile');
   String get groups => _text('groups');
+  String get socialFeed => _text('socialFeed');
+  String get refreshFeed => _text('refreshFeed');
+  String get post => _text('post');
+  String get postCreated => _text('postCreated');
+  String get whatsOnYourMind => _text('whatsOnYourMind');
+  String get publicPrivacy => _text('publicPrivacy');
+  String get friendsPrivacy => _text('friendsPrivacy');
+  String get onlyMePrivacy => _text('onlyMePrivacy');
+  String get like => _text('like');
+  String get comments => _text('comments');
+  String get comment => _text('comment');
+  String get writeComment => _text('writeComment');
+  String get noComments => _text('noComments');
+  String get postDetails => _text('postDetails');
+  String get postNotFound => _text('postNotFound');
+  String get reportPost => _text('reportPost');
+  String get justNow => _text('justNow');
+  String minutesAgo(int count) => _text('minutesAgo').replaceAll('{count}', '$count');
+  String hoursAgo(int count) => _text('hoursAgo').replaceAll('{count}', '$count');
+  String daysAgo(int count) => _text('daysAgo').replaceAll('{count}', '$count');
   String get groupsDescription => _text('groupsDescription');
   String get createGroup => _text('createGroup');
   String get groupName => _text('groupName');
@@ -255,6 +275,26 @@ class AppLocalizations {
       'discover': 'Discover',
       'profile': 'Profile',
       'groups': 'Groups',
+      'socialFeed': 'Social Feed',
+      'refreshFeed': 'Refresh feed',
+      'post': 'Post',
+      'postCreated': 'Post created locally.',
+      'whatsOnYourMind': "What's on your mind?",
+      'publicPrivacy': 'Public',
+      'friendsPrivacy': 'Friends',
+      'onlyMePrivacy': 'Only Me',
+      'like': 'Like',
+      'comments': 'Comments',
+      'comment': 'Comment',
+      'writeComment': 'Write a comment',
+      'noComments': 'No comments yet.',
+      'postDetails': 'Post details',
+      'postNotFound': 'Post not found.',
+      'reportPost': 'Report post',
+      'justNow': 'Just now',
+      'minutesAgo': '{count}m ago',
+      'hoursAgo': '{count}h ago',
+      'daysAgo': '{count}d ago',
       'groupsDescription': 'Discover public and private communities and chat as a guest.',
       'createGroup': 'Create group',
       'groupName': 'Group name',
@@ -444,6 +484,26 @@ class AppLocalizations {
       'discover': 'খুঁজুন',
       'profile': 'প্রোফাইল',
       'groups': 'গ্রুপ',
+      'socialFeed': 'সোশ্যাল ফিড',
+      'refreshFeed': 'ফিড রিফ্রেশ করুন',
+      'post': 'পোস্ট করুন',
+      'postCreated': 'পোস্টটি লোকালি তৈরি হয়েছে।',
+      'whatsOnYourMind': 'আপনার মনে কী আছে?',
+      'publicPrivacy': 'পাবলিক',
+      'friendsPrivacy': 'বন্ধু',
+      'onlyMePrivacy': 'শুধু আমি',
+      'like': 'লাইক',
+      'comments': 'মন্তব্য',
+      'comment': 'মন্তব্য',
+      'writeComment': 'মন্তব্য লিখুন',
+      'noComments': 'এখনও কোনো মন্তব্য নেই।',
+      'postDetails': 'পোস্টের বিস্তারিত',
+      'postNotFound': 'পোস্টটি পাওয়া যায়নি।',
+      'reportPost': 'পোস্ট রিপোর্ট করুন',
+      'justNow': 'এইমাত্র',
+      'minutesAgo': '{count} মিনিট আগে',
+      'hoursAgo': '{count} ঘণ্টা আগে',
+      'daysAgo': '{count} দিন আগে',
       'groupsDescription': 'পাবলিক ও প্রাইভেট কমিউনিটি খুঁজুন এবং অতিথি হিসেবে চ্যাট করুন।',
       'createGroup': 'গ্রুপ তৈরি করুন',
       'groupName': 'গ্রুপের নাম',
