@@ -242,6 +242,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                           const Divider(height: 1),
                           ListTile(
+                            leading: const Icon(Icons.admin_panel_settings_outlined),
+                            title: Text(strings.adminDemo),
+                            subtitle: Text(strings.adminDemoInfo),
+                            onTap: () => context.go(AppRoutes.admin),
+                          ),
+                          const Divider(height: 1),
+                          ListTile(
                             leading: const Icon(Icons.block_rounded),
                             title: Text(strings.blockedUsers),
                             subtitle: Text(strings.blockedUsersInfo),
